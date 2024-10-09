@@ -1,10 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap");
+
 :root {
     --background: rgb(25, 25, 25);
     --foreground: rgb(250, 250, 250);
+    --pastel-blue: rgb(171, 222, 230);
+    --pastel-purple: rgb(203, 170, 203);
+    --pastel-yellow: rgb(255, 255, 181);
+    --pastel-orange: rgb(255, 204, 182);
+    --pastel-pink: rgb(243, 176, 195);
 }
 
 html,
-body {
+body,
+#root {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -20,3 +28,58 @@ body {
         margin: 0;
     }
 }
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    margin-left: 10vw;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.body3-p {
+    display: flex;
+    gap: 12px;
+    margin-top: 1em;
+}
+
+/* Color all on hover */
+.body3-p:hover {
+    a:nth-child(5n + 1) {
+        color: var(--pastel-blue);
+    }
+    a:nth-child(5n + 2) {
+        color: var(--pastel-purple);
+    }
+    a:nth-child(5n + 3) {
+        color: var(--pastel-yellow);
+    }
+    a:nth-child(5n + 4) {
+        color: var(--pastel-orange);
+    }
+    a:nth-child(5n + 5) {
+        color: var(--pastel-pink);
+    }
+}
+
+/* Individual color on hover */
+/* .body3-p > a:nth-child(5n + 1):hover {
+    color: #abdee6;
+}
+.body3-p > a:nth-child(5n + 2):hover {
+    color: #cbaacb;
+}
+.body3-p > a:nth-child(5n + 3):hover {
+    color: #ffffb5;
+}
+.body3-p > a:nth-child(5n + 4):hover {
+    color: #ffccb6;
+}
+.body3-p > a:nth-child(5n + 5):hover {
+    color: #f3b0c3;
+} */
