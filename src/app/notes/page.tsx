@@ -8,11 +8,8 @@ export default function page() {
     const { get, set } = useLocalStorage();
     const [notes, setNotes] = useState<string[]>(get("notes") || []);
 
-    const handleClick = (ind: number) => {
-        if (ind === -1) {
-            setNotes((prev) => [...prev, "Edit me."]);
-        } else {
-        }
+    const addNote = () => {
+        setNotes((prev) => [...prev, "Edit me."]);
     };
 
     const handleDelete = (ind: number) => {
@@ -46,9 +43,7 @@ export default function page() {
                     handleBlur={handleBlur}
                 />
             ))}
-            {notes.length < 9 && (
-                <Note ind={-1} handleClick={() => handleClick(-1)} />
-            )}
+            {notes.length < 9 && <Note ind={-1} handleClick={addNote} />}
         </div>
     );
 }

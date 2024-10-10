@@ -3,7 +3,7 @@
 export const useLocalStorage = () => {
     const get = (key: string) => {
         if (typeof window === "undefined") {
-            return [];
+            return null;
         }
         const resp = window?.localStorage?.getItem(key);
         return resp ? JSON.parse(resp) : null;
