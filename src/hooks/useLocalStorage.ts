@@ -2,6 +2,9 @@
 
 export const useLocalStorage = () => {
     const get = (key: string) => {
+        if (typeof window === "undefined") {
+            return [];
+        }
         const resp = window?.localStorage?.getItem(key);
         return resp ? JSON.parse(resp) : null;
     };
