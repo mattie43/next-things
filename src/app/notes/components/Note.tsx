@@ -1,35 +1,35 @@
 import { useState } from "react";
+import { pastelColors } from "@/constants";
 
-export default function Note({
-    text,
-    color,
-    handleClick,
-    handleDelete,
-}: {
+type TProps = {
     text?: string;
-    color: string;
+    ind: number;
     handleClick: () => void;
-    handleDelete?: () => void;
-}) {
-    const _handleClick = (e: any, type?: string) => {
-        e.stopImmediatePropagation?.();
-        e.stopPropagation?.();
-        if (type === "click") handleClick();
-        else handleDelete?.();
+    handleBlur?: (value: string, ind: number) => void;
+};
+
+export default function Note(props: TProps) {
+    const { text, ind, handleClick, handleBlur } = props;
+    const [hover, setHover] = useState(false);
+    const color = pastelColors[ind % 5] || "white";
+
+    const _handleBlur = (e: any) => {
+        const value = e.target.value;
+        handleBlur?.(value, ind);
     };
-    const [currText, setCurrText] = useState(text);
 
     return (
         <div
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
             style={{
-                boxShadow: `${color} 0px 0px 10px`,
-                padding: "1em",
-                width: "fit-content",
+                boxShadow: `${color} 0px 0px ${hover ? "20px" : "10px"}`,
+                width: "25%",
                 position: "relative",
-                minHeight: "100px",
+                minHeight: "200px",
                 maxHeight: "400px",
+                padding: "1em",
             }}
-            onClick={(e) => _handleClick(e, "click")}
         >
             <span
                 style={{
@@ -38,8 +38,8 @@ export default function Note({
                     right: "8px",
                     cursor: "pointer",
                 }}
-                onClick={(e) => _handleClick(e)}
-                hidden={!handleDelete}
+                onClick={handleClick}
+                hidden={ind === -1}
             >
                 x
             </span>
@@ -58,9 +58,21 @@ export default function Note({
                         letterSpacing: "-0.5px",
                     }}
                     defaultValue={text}
+                    onBlur={_handleBlur}
                 ></textarea>
             ) : (
-                "Add a note."
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: "100%",
+                        cursor: "pointer",
+                    }}
+                    onClick={handleClick}
+                >
+                    <span>Add a note.</span>
+                </div>
             )}
         </div>
     );

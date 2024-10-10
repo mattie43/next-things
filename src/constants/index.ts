@@ -34,23 +34,7 @@ export const body3 = [
         route: "/",
     },
     {
-        text: "build",
-        route: "/",
-    },
-    {
-        text: "in",
-        route: "/",
-    },
-    {
-        text: "my",
-        route: "/",
-    },
-    {
-        text: "free",
-        route: "/",
-    },
-    {
-        text: "time.",
+        text: "build.",
         route: "/",
     },
 ];

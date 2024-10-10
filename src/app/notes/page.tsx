@@ -1,22 +1,14 @@
 "use client";
 
-import { pastelColors } from "@/constants";
 import { useState } from "react";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 import Note from "./components/Note";
 
-const startingNotes = [
-    "This is a note.",
-    "This is another note.",
-    "This is a third note.",
-    "This is a fourth note.",
-    "This is a fifth note.",
-];
-
 export default function page() {
-    const [notes, setNotes] = useState<string[]>(startingNotes);
+    const { get, set } = useLocalStorage();
+    const [notes, setNotes] = useState<string[]>(get("notes") || []);
 
     const handleClick = (ind: number) => {
-        console.log("ind: ", ind);
         if (ind === -1) {
             setNotes((prev) => [...prev, "Edit me."]);
         } else {
@@ -24,10 +16,17 @@ export default function page() {
     };
 
     const handleDelete = (ind: number) => {
-        console.log("ind: ", ind);
         const newNotes = [...notes];
         newNotes.splice(ind, 1);
         setNotes(newNotes);
+        set("notes", newNotes);
+    };
+
+    const handleBlur = (value: string, ind: number) => {
+        const newNotes = [...notes];
+        newNotes[ind] = value;
+        setNotes(newNotes);
+        set("notes", newNotes);
     };
 
     return (
@@ -38,16 +37,18 @@ export default function page() {
                 flexWrap: "wrap",
             }}
         >
-            {notes.map((note, i) => (
+            {notes.map((note, ind) => (
                 <Note
-                    key={note}
+                    key={`${Date.now()}-${ind}`}
                     text={note}
-                    color={pastelColors[i % 5]}
-                    handleClick={() => handleClick(i)}
-                    handleDelete={() => handleDelete(i)}
+                    ind={ind}
+                    handleClick={() => handleDelete(ind)}
+                    handleBlur={handleBlur}
                 />
             ))}
-            <Note color="white" handleClick={() => handleClick(-1)} />
+            {notes.length < 9 && (
+                <Note ind={-1} handleClick={() => handleClick(-1)} />
+            )}
         </div>
     );
 }
