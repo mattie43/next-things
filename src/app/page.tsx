@@ -1,3 +1,4 @@
+import { MyLinks } from "@/components";
 import { body, body2, body3 } from "@/constants";
 import Link from "next/link";
 
@@ -13,6 +14,7 @@ export default function Home() {
                     </Link>
                 ))}
             </div>
+            {<MyLinks />}
         </div>
     );
 }
