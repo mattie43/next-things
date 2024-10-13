@@ -1,6 +1,6 @@
 "use client";
 
-import { Dropdown } from "@/app/shared/Dropdown";
+import { Dropdown } from "@/components/Dropdown";
 import { useState } from "react";
 
 type TProps = {

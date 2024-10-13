@@ -1,3 +1,5 @@
+"use client";
+
 import { pastelColors } from "@/constants";
 import { useEffect, useRef, useState } from "react";
 
@@ -45,7 +47,13 @@ export const Dropdown = (props: TProps) => {
         <div className="dropdown">
             <button
                 onClick={toggleDropdown}
-                className="dropdown-toggle"
+                className={`dropdown-button ${
+                    isOpen
+                        ? isBelow
+                            ? "dropdown-button-open-reverse"
+                            : "dropdown-button-open"
+                        : ""
+                }`}
                 ref={ref}
             >
                 {selectedOption} ▼
@@ -59,12 +67,8 @@ export const Dropdown = (props: TProps) => {
                 >
                     <input
                         placeholder="Find"
+                        className="dropdown-menu-find"
                         onChange={(e) => setFindValue(e.target.value)}
-                        style={{
-                            border: "none",
-                            borderRadius: "0",
-                            borderBottom: "1px solid white",
-                        }}
                     />
                     <ul className="dropdown-menu-ul">
                         {filteredOptions.map((option, index) => (

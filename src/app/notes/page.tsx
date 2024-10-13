@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import Note from "./components/Note";
+import { Note } from "@/components";
 
 export default function page() {
     const { get, set } = useLocalStorage();

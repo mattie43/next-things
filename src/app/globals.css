@@ -2,7 +2,7 @@
 
 :root {
     --background: rgb(25, 25, 25);
-    --foreground: rgb(250, 250, 250);
+    --white: rgb(250, 250, 250);
     --pastel-blue: rgb(171, 222, 230);
     --pastel-purple: rgb(203, 170, 203);
     --pastel-yellow: rgb(255, 255, 181);
@@ -16,7 +16,7 @@ body,
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    color: var(--foreground);
+    color: var(--white);
     background: var(--background);
     font-family: Overpass Mono, Cascadia Mono;
     font-size: 1.2rem;
@@ -42,11 +42,14 @@ button {
     font-weight: 500;
     letter-spacing: -0.5px;
     background: transparent;
-    color: var(--foreground);
-    border: 1px solid var(--foreground);
+    color: var(--white);
+    border: 1px solid var(--white);
     border-radius: 4px;
     cursor: pointer;
     padding: 10px;
+}
+button:hover {
+    background: rgba(250, 250, 250, 0.1);
 }
 button:active {
     background: rgba(250, 250, 250, 0.3);
@@ -59,9 +62,9 @@ a {
 
 input {
     background: transparent;
-    border: 1px solid var(--foreground);
+    border: 1px solid var(--white);
     border-radius: 4px;
-    color: var(--foreground);
+    color: var(--white);
     padding: 10px;
     font-family: Overpass Mono, Cascadia Mono;
     font-size: 1.2rem;
@@ -75,7 +78,6 @@ input {
     margin-top: 1em;
 }
 
-/* Color all on hover */
 .body3-p:hover {
     a:nth-child(5n + 1) {
         color: var(--pastel-blue);
@@ -94,52 +96,44 @@ input {
     }
 }
 
-/* Individual color on hover */
-/* .body3-p > a:nth-child(5n + 1):hover {
-    color: #abdee6;
-}
-.body3-p > a:nth-child(5n + 2):hover {
-    color: #cbaacb;
-}
-.body3-p > a:nth-child(5n + 3):hover {
-    color: #ffffb5;
-}
-.body3-p > a:nth-child(5n + 4):hover {
-    color: #ffccb6;
-}
-.body3-p > a:nth-child(5n + 5):hover {
-    color: #f3b0c3;
-} */
-
 .dropdown {
     position: relative;
 }
 
-.dropdown-toggle {
+.dropdown-button {
     padding: 10px;
     border: none;
     cursor: pointer;
     border-radius: 4px;
     background: transparent;
-    color: var(--foreground);
-    border: 1px solid var(--foreground);
+    color: var(--white);
+    border: 1px solid var(--white);
     width: 100%;
+}
+.dropdown-button-open {
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+}
+.dropdown-button-open-reverse {
+    border-top: none;
+    border-radius: 0 0 4px 4px;
 }
 
 .dropdown-menu {
-    border: 1px solid var(--foreground);
-    border-radius: 4px;
+    border: 1px solid var(--white);
+    border-radius: 0 0 4px 4px;
     background: var(--background);
     position: absolute;
-    top: 110%;
+    top: 100%;
     left: 0;
-    width: 100%;
+    width: calc(100% - 2px);
     z-index: 10;
     max-height: 45vh;
     overflow: hidden;
 }
 .dropdown-menu-reverse {
-    top: calc(-45vh - 10%);
+    top: calc(-45vh);
+    border-radius: 4px 4px 0 0;
 }
 .dropdown-menu-ul {
     display: flex;
@@ -158,4 +152,13 @@ input {
 
 .dropdown-item:hover {
     background-color: rgba(250, 250, 250, 0.3);
+}
+
+.dropdown-menu-find {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--white);
+    width: 100%;
+    height: 30px;
+    outline: none;
 }

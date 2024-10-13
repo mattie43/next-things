@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { pastelColors } from "@/constants";
 
@@ -8,7 +10,7 @@ type TProps = {
     handleBlur?: (value: string, ind: number) => void;
 };
 
-export default function Note(props: TProps) {
+export const Note = (props: TProps) => {
     const { text, ind, handleClick, handleBlur } = props;
     const [hover, setHover] = useState(false);
     const color = pastelColors[ind % 5] || "white";
@@ -76,4 +78,4 @@ export default function Note(props: TProps) {
             )}
         </div>
     );
-}
+};
