@@ -11,7 +11,7 @@ export const body3 = [
     },
     {
         text: "where",
-        route: "/",
+        route: "/component-showcase",
     },
     {
         text: "I",

@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap");
+@import "./ui.css";
+@import "./layout.css";
+
+:root {
+    --background: rgb(25, 25, 25);
+    --white: rgb(250, 250, 250);
+    --pastel-blue: rgb(171, 222, 230);
+    --pastel-purple: rgb(203, 170, 203);
+    --pastel-yellow: rgb(255, 255, 181);
+    --pastel-orange: rgb(255, 204, 182);
+    --pastel-pink: rgb(243, 176, 195);
+}
+
+html,
+body,
+#root {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    color: var(--white);
+    background: var(--background);
+    font-family: Overpass Mono, Cascadia Mono;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    & > * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15vw;
+}

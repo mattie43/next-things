@@ -1,0 +1,23 @@
+.body3-p {
+    display: flex;
+    gap: 12px;
+    margin-top: 1em;
+}
+
+.body3-p:hover {
+    a:nth-child(5n + 1) {
+        color: var(--pastel-blue);
+    }
+    a:nth-child(5n + 2) {
+        color: var(--pastel-purple);
+    }
+    a:nth-child(5n + 3) {
+        color: var(--pastel-yellow);
+    }
+    a:nth-child(5n + 4) {
+        color: var(--pastel-orange);
+    }
+    a:nth-child(5n + 5) {
+        color: var(--pastel-pink);
+    }
+}

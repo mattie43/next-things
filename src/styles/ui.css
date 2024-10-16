@@ -1,41 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap");
-
-:root {
-    --background: rgb(25, 25, 25);
-    --white: rgb(250, 250, 250);
-    --pastel-blue: rgb(171, 222, 230);
-    --pastel-purple: rgb(203, 170, 203);
-    --pastel-yellow: rgb(255, 255, 181);
-    --pastel-orange: rgb(255, 204, 182);
-    --pastel-pink: rgb(243, 176, 195);
-}
-
-html,
-body,
-#root {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    color: var(--white);
-    background: var(--background);
-    font-family: Overpass Mono, Cascadia Mono;
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-    & > * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-    }
-}
-
-#root {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 15vw;
-}
-
+/* Button */
 button {
     font-family: Overpass Mono, Cascadia Mono;
     font-size: 1.2rem;
@@ -54,12 +17,17 @@ button:hover {
 button:active {
     background: rgba(250, 250, 250, 0.3);
 }
+button[data-dense] {
+    padding: 4px;
+}
 
+/* A */
 a {
     color: white;
     text-decoration: none;
 }
 
+/* Input */
 input {
     background: transparent;
     border: 1px solid var(--white);
@@ -72,30 +40,7 @@ input {
     letter-spacing: -0.5px;
 }
 
-.body3-p {
-    display: flex;
-    gap: 12px;
-    margin-top: 1em;
-}
-
-.body3-p:hover {
-    a:nth-child(5n + 1) {
-        color: var(--pastel-blue);
-    }
-    a:nth-child(5n + 2) {
-        color: var(--pastel-purple);
-    }
-    a:nth-child(5n + 3) {
-        color: var(--pastel-yellow);
-    }
-    a:nth-child(5n + 4) {
-        color: var(--pastel-orange);
-    }
-    a:nth-child(5n + 5) {
-        color: var(--pastel-pink);
-    }
-}
-
+/* Dropdown */
 .dropdown {
     position: relative;
 }
@@ -161,4 +106,37 @@ input {
     width: 100%;
     height: 30px;
     outline: none;
+}
+
+/* Toast */
+.toast {
+    position: absolute;
+    left: 10vw;
+    bottom: 10vh;
+    background-color: rgba(250, 250, 250, 0.1);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.toast > span {
+    margin: 0.5em;
+}
+.toast > div {
+    height: 4px;
+    width: 0;
+    background-color: white;
+    animation: toast-animation 5s linear;
+}
+.toast > span > button {
+    border: none;
+    margin-left: 12px;
+}
+@keyframes toast-animation {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
 }
