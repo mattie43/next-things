@@ -3,15 +3,15 @@ export const body2 = "My name is Matt Ericksen.";
 export const body3 = [
     {
         text: "This",
-        route: "/notes",
+        route: "/mui",
     },
     {
         text: "is",
-        route: "/timezones",
+        route: "/",
     },
     {
         text: "where",
-        route: "/component-showcase",
+        route: "/",
     },
     {
         text: "I",
