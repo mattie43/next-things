@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { pastelColors } from "@/constants";
+import { Snackbar } from "@mui/material";
 
 export const MyLinks = () => {
     const [copied, setCopied] = useState(false);
@@ -25,7 +26,7 @@ export const MyLinks = () => {
         setCopied(true);
         setTimeout(() => {
             setCopied(false);
-        }, 1500);
+        }, 2500);
     };
 
     return (
@@ -66,22 +67,18 @@ export const MyLinks = () => {
                     style={{ cursor: "pointer", marginTop: "-2px" }}
                     onClick={copyEmail}
                 />
-                <span
-                    style={{
-                        position: "absolute",
-                        top: "48px",
-                        left: "-22px",
-                        fontSize: "0.6em",
-                        borderRadius: "4px",
-                        padding: "4px",
+            </div>
+            <Snackbar
+                message="Copied to clipboard!"
+                open={copied}
+                sx={{
+                    "& .MuiPaper-root": {
+                        backgroundColor: "var(--black)",
                         border: `2px solid ${colors[0]}`,
                         color: colors[1],
-                    }}
-                    hidden={!copied}
-                >
-                    Copied to clipboard!
-                </span>
-            </div>
+                    },
+                }}
+            />
         </div>
     );
 };

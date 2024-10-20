@@ -7,7 +7,7 @@ export default function Home() {
         <div>
             <p>{body}</p>
             <p>{body2}</p>
-            <div className="body3-p">
+            <div className="body3">
                 {body3.map((item, i) => (
                     <Link key={i} href={item.route}>
                         {item.text}
