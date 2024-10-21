@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap");
-@import "./layout.css";
+@import "./home.css";
 
 :root {
     --black: rgb(25, 25, 25);
@@ -24,18 +24,11 @@ body,
     font-size: 1.2rem;
     font-weight: 500;
     letter-spacing: -0.5px;
+    margin: 0;
+    padding: 0;
     & > * {
         box-sizing: border-box;
-        padding: 0;
-        margin: 0;
     }
-}
-
-#root {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 15vw;
 }
 
 a {

@@ -7,7 +7,7 @@ export const body3 = [
     },
     {
         text: "is",
-        route: "/",
+        route: "/youtube",
     },
     {
         text: "where",
