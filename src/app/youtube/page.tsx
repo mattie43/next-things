@@ -9,11 +9,12 @@ export default function page() {
                 flexWrap: "wrap",
                 gap: "1em",
                 padding: "1vh 1vw",
+                overflow: "auto",
             }}
         >
             <SideNav />
             <Suspense fallback={<div>Loading...</div>}>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, i) => (
+                {Array.from({ length: 10 }).map((item, i) => (
                     <Thumbnail key={i} ind={i} />
                 ))}
             </Suspense>

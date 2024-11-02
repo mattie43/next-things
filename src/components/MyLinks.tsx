@@ -33,7 +33,7 @@ export const MyLinks = () => {
         <div
             style={{
                 display: "flex",
-                marginTop: "1em",
+                margin: "1em 0",
                 gap: "1em",
             }}
         >
