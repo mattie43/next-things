@@ -51,7 +51,7 @@ export const WindowScroller = () => {
             </Link>
             <Card sx={{ height: "700px" }}>
                 <VariableSizeList
-                    height={750}
+                    height={700}
                     width={350}
                     itemSize={itemSize}
                     itemCount={users?.length ?? 0}
