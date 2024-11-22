@@ -1,4 +1,5 @@
-import { Scroller } from "./components/Scroller";
+import { TanstackScroller } from "./components/TanstackScroller";
+import { WindowScroller } from "./components/WindowScroller";
 
 export default function page() {
     return (
@@ -8,9 +9,11 @@ export default function page() {
                 height: "100vh",
                 alignItems: "center",
                 justifyContent: "center",
+                gap: "2em",
             }}
         >
-            <Scroller />
+            <WindowScroller />
+            <TanstackScroller />
         </div>
     );
 }

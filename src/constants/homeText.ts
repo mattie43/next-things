@@ -3,7 +3,7 @@ export const body2 = "My name is Matt Ericksen.";
 export const body3 = [
     {
         text: "This",
-        route: "/",
+        route: "/scroller",
     },
     {
         text: "is",

@@ -81,7 +81,7 @@ interface Info {
     version: string;
 }
 
-interface ApiResponse {
+interface ApiResp {
     results: Result[];
     info: Info;
 }
@@ -94,12 +94,15 @@ export const useUsers = () => {
 
     const getKey = (pageIndex: number) => `${url}&page=${pageIndex + 1}`;
 
-    const { isLoading, data, isValidating, setSize } =
-        useSWRInfinite<ApiResponse>(getKey, fetcher, {
+    const { isLoading, data, isValidating, setSize } = useSWRInfinite<ApiResp>(
+        getKey,
+        fetcher,
+        {
             revalidateFirstPage: false,
             revalidateOnFocus: false,
             revalidateIfStale: false,
-        });
+        }
+    );
 
     const users = data?.flatMap(({ results }) => results);
 

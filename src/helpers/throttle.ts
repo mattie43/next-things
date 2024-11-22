@@ -1,15 +1,17 @@
-export const throttle = <T extends (...args: any[]) => void>(
-    func: T,
-    delay: number
-): ((...args: Parameters<T>) => void) => {
-    let lastCall = 0;
+"use client";
 
-    return (...args: Parameters<T>) => {
-        const now = Date.now();
+import { useStorage } from "@/hooks/useStorage";
 
-        if (now - lastCall >= delay) {
-            lastCall = now;
-            func(...args);
-        }
-    };
+export const throttle = (fn: VoidFunction, delay: number) => {
+    const { get, set } = useStorage("session");
+    const time = Date.now();
+
+    const last: number = get(`${fn.name}`);
+
+    if (last && time - last < delay) {
+        return;
+    } else {
+        set(`${fn.name}`, time);
+        fn();
+    }
 };
