@@ -1,6 +1,6 @@
 "use client";
 
-import { Card } from "@mui/material";
+import { Card, CircularProgress } from "@mui/material";
 import { MyCard } from "./MyCard";
 import { useUsers } from "../useUsers";
 import { VariableSizeList } from "react-window";
@@ -8,7 +8,7 @@ import { throttle } from "@/helpers";
 import Link from "next/link";
 
 export const WindowScroller = () => {
-    const { users, isLoading, isValidating, setSize } = useUsers();
+    const { users, isLoading, isValidating, setSize, firstLoad } = useUsers();
 
     const handleIntersect = () => {
         if (isLoading || isValidating) return;
@@ -31,6 +31,21 @@ export const WindowScroller = () => {
         return 100;
     };
 
+    const Loader = () => (
+        <div
+            style={{
+                padding: "1em",
+            }}
+        >
+            <CircularProgress
+                sx={{
+                    display: "flex",
+                    margin: "auto",
+                }}
+            />
+        </div>
+    );
+
     return (
         <div>
             <Link
@@ -50,20 +65,27 @@ export const WindowScroller = () => {
                 </span>
             </Link>
             <Card sx={{ height: "700px" }}>
-                <VariableSizeList
-                    height={700}
-                    width={350}
-                    itemSize={itemSize}
-                    itemCount={users?.length ?? 0}
-                    itemData={users}
-                    onItemsRendered={({ overscanStopIndex }) => {
-                        if (users && overscanStopIndex >= users.length - 1) {
-                            throttle(handleIntersect, 1000);
-                        }
-                    }}
-                >
-                    {renderRow}
-                </VariableSizeList>
+                {firstLoad ? (
+                    <Loader />
+                ) : (
+                    <VariableSizeList
+                        height={700}
+                        width={350}
+                        itemSize={itemSize}
+                        itemCount={users?.length ?? 0}
+                        itemData={users}
+                        onItemsRendered={({ overscanStopIndex }) => {
+                            if (
+                                users &&
+                                overscanStopIndex >= users.length - 1
+                            ) {
+                                throttle(handleIntersect, 1000);
+                            }
+                        }}
+                    >
+                        {renderRow}
+                    </VariableSizeList>
+                )}
             </Card>
         </div>
     );

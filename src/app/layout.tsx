@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@mui/material";
-import { theme } from "@/context";
+import { theme } from "@/context/MuiTheme";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import "@/styles/index.css";
 

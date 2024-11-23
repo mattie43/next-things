@@ -9,7 +9,7 @@ import { useVirtualizer } from "@tanstack/react-virtual";
 import { useRef } from "react";
 
 export const TanstackScroller = () => {
-    const { users, isLoading, isValidating, setSize } = useUsers();
+    const { users, isLoading, isValidating, setSize, firstLoad } = useUsers();
     const parentRef = useRef<HTMLDivElement>(null);
 
     const handleIntersect = () => {
@@ -24,6 +24,22 @@ export const TanstackScroller = () => {
         overscan: 1,
     });
 
+    const Loader = () => (
+        <div
+            id="loader"
+            style={{
+                padding: "1em",
+            }}
+        >
+            <CircularProgress
+                sx={{
+                    display: "flex",
+                    margin: "auto",
+                }}
+            />
+        </div>
+    );
+
     return (
         <div>
             <Link
@@ -37,58 +53,49 @@ export const TanstackScroller = () => {
                 tanstack scroller
             </Link>
             <Card sx={{ overflow: "auto", height: "700px" }} ref={parentRef}>
-                <div
-                    style={{
-                        height: `${rowVirtualizer.getTotalSize()}px`,
-                        width: "350px",
-                        position: "relative",
-                    }}
-                >
-                    {rowVirtualizer.getVirtualItems().map((virtualRow) => {
-                        const isLoaderRow =
-                            virtualRow.index > users!.length - 2;
-                        const post = users?.[virtualRow.index];
+                {firstLoad ? (
+                    <Loader />
+                ) : (
+                    <div
+                        style={{
+                            height: `${rowVirtualizer.getTotalSize()}px`,
+                            width: "350px",
+                            position: "relative",
+                        }}
+                    >
+                        {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+                            const isLoaderRow =
+                                virtualRow.index > users!.length - 2;
+                            const post = users?.[virtualRow.index];
 
-                        if (isLoaderRow) {
-                            throttle(handleIntersect, 1000);
-                        }
+                            if (isLoaderRow) {
+                                throttle(handleIntersect, 1000);
+                            }
 
-                        return (
-                            <div
-                                key={virtualRow.index}
-                                style={{
-                                    position: "absolute",
-                                    top: 0,
-                                    left: 0,
-                                    width: "100%",
-                                    height: `${virtualRow.size}px`,
-                                    transform: `translateY(${virtualRow.start}px)`,
-                                }}
-                            >
-                                {post && (
-                                    <MyCard
-                                        item={post}
-                                        ind={virtualRow.index}
-                                    />
-                                )}
-                                {isLoaderRow && (
-                                    <div
-                                        style={{
-                                            padding: "1em",
-                                        }}
-                                    >
-                                        <CircularProgress
-                                            sx={{
-                                                display: "flex",
-                                                margin: "auto",
-                                            }}
+                            return (
+                                <div
+                                    key={virtualRow.index}
+                                    style={{
+                                        position: "absolute",
+                                        top: 0,
+                                        left: 0,
+                                        width: "100%",
+                                        height: `${virtualRow.size}px`,
+                                        transform: `translateY(${virtualRow.start}px)`,
+                                    }}
+                                >
+                                    {post && (
+                                        <MyCard
+                                            item={post}
+                                            ind={virtualRow.index}
                                         />
-                                    </div>
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
+                                    )}
+                                    {isLoaderRow && <Loader />}
+                                </div>
+                            );
+                        })}
+                    </div>
+                )}
             </Card>
         </div>
     );

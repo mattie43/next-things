@@ -1,5 +1,5 @@
-import { MyLinks } from "@/components";
-import { body, body2, body3 } from "@/constants";
+import { MyLinks } from "@/app/home/MyLinks";
+import { body, body2, body3 } from "@/app/home/homeText.constants";
 import Link from "next/link";
 
 export default function Home() {

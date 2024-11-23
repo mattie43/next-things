@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import useSWRInfinite from "swr/infinite";
 
 interface Coordinates {
@@ -87,6 +88,7 @@ interface ApiResp {
 }
 
 export const useUsers = () => {
+    const [firstLoad, setFirstLoad] = useState(true);
     const url = "https://randomuser.me/api/?results=20&seed=abc";
 
     const fetcher = (pageUrl: string) =>
@@ -104,7 +106,14 @@ export const useUsers = () => {
         }
     );
 
+    useEffect(() => {
+        if (!firstLoad) return;
+        if (data && !isLoading && !isValidating) {
+            setFirstLoad(false);
+        }
+    }, [data, isLoading, isValidating]);
+
     const users = data?.flatMap(({ results }) => results);
 
-    return { isLoading, setSize, isValidating, users };
+    return { isLoading, setSize, isValidating, users, firstLoad };
 };

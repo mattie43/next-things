@@ -2,7 +2,8 @@
 
 import { SIEGE_API_TYPES } from "./siege.constants";
 import { Nav } from "./components/Nav";
-import { Table } from "./components/Table";
+import { PlayersTable } from "./components/PlayersTable";
+import { Tooltip } from "@mui/material";
 
 export default async function page({
     searchParams,
@@ -11,14 +12,30 @@ export default async function page({
 }) {
     const search = searchParams.search || "players";
 
+    const Display = () => {
+        switch (search) {
+            case "players":
+                return <PlayersTable />;
+            case "yearly":
+                return <>yearly</>;
+            case "matches":
+                return <>matches</>;
+            case "competitions":
+                return <>competitions</>;
+            default:
+                return <PlayersTable />;
+        }
+    };
+
     return (
         <div
             style={{
-                padding: "0 15vw",
+                paddingRight: "10vw",
+                height: "100%",
             }}
         >
             <Nav search={search} />
-            <Table search={search} />
+            <Display />
         </div>
     );
 }

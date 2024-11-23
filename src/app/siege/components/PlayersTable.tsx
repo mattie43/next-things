@@ -1,26 +1,43 @@
-import { TPlayer } from "../siege.types";
+"use client";
 
-export const PlayersTable = ({ data }: any) => {
-    const players = data.players;
-    console.log("!@#!@#", data);
+import { debounce } from "@/helpers";
+import { useSiegeData } from "../useSiegeData";
+import { PlayerCard } from "./PlayerCard";
+import { TextField } from "@mui/material";
+
+export const PlayersTable = () => {
+    const { players, setSearchText } = useSiegeData("players");
+
+    const handleChange = (e: any) => {
+        setSearchText(e?.target?.value);
+    };
+
+    if (!players) return <div>Loading...</div>;
 
     return (
         <div
             style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "1em",
-                overflow: "auto",
-                height: "100%",
+                gap: "0.5em",
+                height: "92%",
+                width: "700px",
+                margin: "auto",
             }}
         >
-            {players?.map((player: TPlayer, ind: number) => (
-                <div key={ind}>
-                    <div>{player.ign}</div>
-                    <div>{player.name}</div>
-                    <div>{player.age}</div>
-                </div>
-            ))}
+            <TextField onChange={debounce(handleChange, 500)} size="small" />
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.5em",
+                    overflow: "auto",
+                }}
+            >
+                {players?.map((player, ind: number) => (
+                    <PlayerCard key={ind} player={player} ind={ind} />
+                ))}
+            </div>
         </div>
     );
 };

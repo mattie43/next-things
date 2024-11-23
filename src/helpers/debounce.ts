@@ -1,14 +1,15 @@
-export const debounce = <T extends (...args: any[]) => void>(
-    func: T,
-    delay: number
-): ((...args: Parameters<T>) => void) => {
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+"use client";
 
-    return (...args: Parameters<T>) => {
-        if (timeoutId) clearTimeout(timeoutId);
+export function debounce(fn: Function, delay: number) {
+    let timeoutId: NodeJS.Timeout | null = null;
+
+    return function (this: any, ...args: any) {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
 
         timeoutId = setTimeout(() => {
-            func(...args);
+            fn.apply(this, args);
         }, delay);
     };
-};
+}

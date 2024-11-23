@@ -1,8 +1,8 @@
 "use client";
 
-import gh from "@/imgs/github-white.png";
-import li from "@/imgs/linkedin.png";
-import em from "@/imgs/gmail.png";
+import gh from "./imgs/github-white.png";
+import li from "./imgs/linkedin.png";
+import em from "./imgs/gmail.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";

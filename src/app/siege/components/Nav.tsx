@@ -1,7 +1,7 @@
 "use server";
 
 import { pastelColors } from "@/constants";
-import { SIEGE_API } from "../siege.constants";
+import { SIEGE_API } from "@/app/siege/siege.constants";
 import Link from "next/link";
 
 export const Nav = ({ search }: { search: string }) => {
@@ -33,6 +33,7 @@ export const Nav = ({ search }: { search: string }) => {
             style={{
                 display: "flex",
                 gap: "3em",
+                justifyContent: "center",
                 margin: "1em 0",
             }}
         >

@@ -7,7 +7,7 @@ export const body3 = [
     },
     {
         text: "is",
-        route: "/",
+        route: "/siege",
     },
     {
         text: "where",
@@ -37,12 +37,4 @@ export const body3 = [
         text: "build.",
         route: "/",
     },
-];
-
-export const pastelColors = [
-    "var(--pastel-blue)",
-    "var(--pastel-purple)",
-    "var(--pastel-yellow)",
-    "var(--pastel-orange)",
-    "var(--pastel-pink)",
 ];

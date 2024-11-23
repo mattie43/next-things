@@ -5,6 +5,9 @@ const nextConfig = {
             {
                 hostname: "*dog.ceo*",
             },
+            {
+                hostname: "*cdn-siege.fly.dev*",
+            },
         ],
     },
 };
