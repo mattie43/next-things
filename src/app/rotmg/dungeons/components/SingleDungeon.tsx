@@ -1,6 +1,7 @@
 "use client";
 
 import dungsPNG from "@/app/rotmg/dungeons/imgs/rotmg-dungeons.png";
+import crossSVG from "@/app/rotmg/dungeons/imgs/cross.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -23,6 +24,7 @@ export default function SingleDungeon({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        textAlign: "center",
       }}
     >
       <Link href={url} target="_blank">
@@ -34,7 +36,9 @@ export default function SingleDungeon({
           height: "82px",
           overflow: "hidden",
           position: "relative",
+          cursor: "pointer",
         }}
+        onClick={() => setCrossedOut((prev) => !prev)}
       >
         <Image
           src={dungsPNG}
@@ -47,6 +51,19 @@ export default function SingleDungeon({
             left: 0,
           }}
           className="dungeon-image"
+        />
+        <Image
+          src={crossSVG}
+          alt="Cross"
+          width={46}
+          height={46}
+          style={{
+            fill: "red",
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}
+          hidden={!crossedOut}
         />
       </div>
     </div>
