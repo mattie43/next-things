@@ -1,9 +1,9 @@
 "use client";
 
-import { Switch, Typography } from "@mui/material";
+import { Button, Switch, Typography } from "@mui/material";
 import { useState } from "react";
 
-export default function Options() {
+export default function Options({ setResetCrossed }: any) {
   const [options, setOptions] = useState({
     showDungeonNames: true,
     allowCrossedOutDungeons: true,
@@ -16,12 +16,13 @@ export default function Options() {
         flexDirection: "column",
         minWidth: "240px",
         borderRight: "1px solid #ccc",
+        padding: "0 8px",
       }}
     >
       <div>
         <Typography variant="caption">Show names</Typography>
         <Switch
-          value={options.showDungeonNames}
+          checked={options.showDungeonNames}
           onChange={() =>
             setOptions((prev) => ({
               ...prev,
@@ -33,7 +34,7 @@ export default function Options() {
       <div>
         <Typography variant="caption">Allow crossing</Typography>
         <Switch
-          value={options.allowCrossedOutDungeons}
+          checked={options.allowCrossedOutDungeons}
           onChange={() =>
             setOptions((prev) => ({
               ...prev,
@@ -42,6 +43,7 @@ export default function Options() {
           }
         />
       </div>
+      <Button onClick={() => setResetCrossed(true)}>Reset</Button>
     </div>
   );
 }

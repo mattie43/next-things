@@ -1,71 +1,43 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import dungsPNG from "@/app/rotmg/dungeons/imgs/rotmg-dungeons.png";
-import crossSVG from "@/app/rotmg/dungeons/imgs/cross.svg";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { Typography } from "@mui/material";
 
-export default function SingleDungeon({
-  index,
-  name,
-}: {
+interface CanvasCropProps {
   index: number;
-  name: string;
-}) {
-  const [crossedOut, setCrossedOut] = useState(false);
-  const urlName = name.replaceAll(" ", "-").replaceAll("'", "-");
-  const url = `https://www.realmeye.com/wiki/${urlName}`;
+  dung: any;
+}
+
+export default function SingleDungeon({ index, dung }: CanvasCropProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const w = dung.width || 86;
+  const h = dung.height || 86;
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+
+    if (!canvas || !ctx) return;
+
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = dungsPNG.src;
+    img.onload = () => {
+      canvas.width = w;
+      canvas.height = h;
+      ctx.drawImage(img, 0, index * 82, w, h, 0, 0, w, h);
+    };
+  }, [dung]);
 
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
         textAlign: "center",
       }}
     >
-      <Link href={url} target="_blank">
-        {name}
-      </Link>
-      <div
-        style={{
-          width: "86px",
-          height: "82px",
-          overflow: "hidden",
-          position: "relative",
-          cursor: "pointer",
-        }}
-        onClick={() => setCrossedOut((prev) => !prev)}
-      >
-        <Image
-          src={dungsPNG}
-          alt="Cropped Dungeon Image"
-          width={86}
-          height={5642}
-          style={{
-            position: "absolute",
-            top: `${index * -82}px`,
-            left: 0,
-          }}
-          className="dungeon-image"
-        />
-        <Image
-          src={crossSVG}
-          alt="Cross"
-          width={46}
-          height={46}
-          style={{
-            fill: "red",
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
-          }}
-          hidden={!crossedOut}
-        />
-      </div>
+      <Typography variant="caption">{dung.name}</Typography>
+      <canvas ref={canvasRef} style={{ display: "block", margin: "auto" }} />
     </div>
   );
 }

@@ -24,8 +24,7 @@ body {
   font-weight: 500;
   letter-spacing: -0.5px;
   margin: 0;
-  /* dbl padding for 10vw total */
-  padding: 0 5vw;
+  padding: 0;
   & > * {
     box-sizing: border-box;
   }
