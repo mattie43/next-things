@@ -23,11 +23,9 @@ const initialValue: TRotmgOptions = {
 };
 
 export const RotmgOptionsProvider = ({ children }: { children: ReactNode }) => {
+  const { get, set } = useStorage("local");
   // Local storage checks
-  const [crossedDungeons, setCrossedDungeons] = useStorage({
-    key: "show-dungeon-names",
-    initialValue: [],
-  });
+  const crossedDungeons = get("crossed-dungeons") ?? [];
 
   // Set initial value + local storage values
   const [options, setOptions] = useState<TRotmgOptions>({
@@ -47,7 +45,7 @@ export const RotmgOptionsProvider = ({ children }: { children: ReactNode }) => {
       ? options.crossedDungeons.filter((d) => d !== dungeon)
       : [...options.crossedDungeons, dungeon];
 
-    setCrossedDungeons?.(newCrossedDungeons);
+    set("crossed-dungeons", newCrossedDungeons);
 
     setOptions((prev) => ({
       ...prev,
@@ -58,7 +56,7 @@ export const RotmgOptionsProvider = ({ children }: { children: ReactNode }) => {
   // Reset options to initial value
   const resetOptions = () => {
     setOptions(initialValue);
-    setCrossedDungeons?.([]);
+    set("crossed-dungeons", []);
   };
 
   return (

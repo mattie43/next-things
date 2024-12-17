@@ -1,31 +1,27 @@
 "use client";
 
-import { useState } from "react";
+type TStorageType = "local" | "session";
 
-type TStorage = {
-  key: string;
-  initialValue: any;
-  type?: "local" | "session";
-};
-
-type TReturnStorage = [any, (value: any) => void] | [null, null];
-
-export const useStorage = (props: TStorage): TReturnStorage => {
-  const { key, initialValue, type = "local" } = props;
-  if (typeof window === "undefined") {
-    console.error("Window is undefined.");
-    return [null, null];
-  }
-
+export const useStorage = (type: TStorageType = "local") => {
   const storageType = type === "local" ? "localStorage" : "sessionStorage";
-  const resp = window[storageType].getItem(key);
-  const [_value, _setValue] = useState(resp ? JSON.parse(resp) : initialValue);
 
-  const setValue = (value: any) => {
-    const newValue = JSON.stringify(value);
-    window[storageType].setItem(key, newValue);
-    _setValue(newValue);
+  const get = (key: string) => {
+    if (typeof window === "undefined") {
+      console.error("Window is undefined.");
+      return null;
+    }
+    const resp = window[storageType].getItem(key);
+    return resp ? JSON.parse(resp) : null;
   };
 
-  return [_value, setValue] as const;
+  const set = (key: string, value: any) => {
+    if (typeof window === "undefined") {
+      console.error("Window is undefined.");
+      return null;
+    }
+    const newValue = JSON.stringify(value);
+    window[storageType].setItem(key, newValue);
+  };
+
+  return { get, set };
 };
