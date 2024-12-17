@@ -15,7 +15,7 @@ export default function SingleDungeon({ index, dung }: CanvasCropProps) {
   const link = `https://www.realmeye.com/wiki/${dung.name
     .replaceAll(" ", "-")
     .replaceAll("'", "-")}`;
-  const isCrossed = options.crossedDungeons.includes(dung.name);
+  const isCrossed = options?.crossedDungeons?.includes?.(dung.name) || false;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const w = dung.width || 86;

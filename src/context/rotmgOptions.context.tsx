@@ -43,7 +43,7 @@ export const RotmgOptionsProvider = ({ children }: { children: ReactNode }) => {
     }));
   };
   const addRemoveDungeon = (dungeon: string) => {
-    const newCrossedDungeons = options.crossedDungeons.includes(dungeon)
+    const newCrossedDungeons = options.crossedDungeons?.includes?.(dungeon)
       ? options.crossedDungeons.filter((d) => d !== dungeon)
       : [...options.crossedDungeons, dungeon];
 
