@@ -6,20 +6,9 @@ import { ROTMG_REALM_DUNGEONS } from "./rotmgDungeons.constants";
 
 export default function page() {
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "100%",
-      }}
-    >
+    <div>
       <SidePanel />
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          overflow: "auto",
-        }}
-      >
+      <div>
         {ROTMG_REALM_DUNGEONS.map((dung, i) => (
           <SingleDungeon key={i} index={i} dung={dung} />
         ))}

@@ -11,7 +11,7 @@ export const body3 = [
   },
   {
     text: "where",
-    route: "/rotmg",
+    route: "/rotmg/dungeons",
   },
   {
     text: "I",

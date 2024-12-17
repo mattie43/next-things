@@ -31,13 +31,9 @@ export default function SingleDungeon({ index, dung }: CanvasCropProps) {
   }, [dung]);
 
   return (
-    <div
-      style={{
-        textAlign: "center",
-      }}
-    >
+    <div>
       <Typography variant="caption">{dung.name}</Typography>
-      <canvas ref={canvasRef} style={{ display: "block", margin: "auto" }} />
+      <canvas className="m-auto" ref={canvasRef} />
     </div>
   );
 }
