@@ -1,17 +1,29 @@
-"use client";
+type ThrottledFunction<T extends (...args: any[]) => void> = (
+  ...args: Parameters<T>
+) => void;
 
-import { useStorage } from "@/hooks/useStorage";
+export function throttle<T extends (...args: any[]) => void>(
+  func: T,
+  limit: number
+): ThrottledFunction<T> {
+  let lastFunc: ReturnType<typeof setTimeout>;
+  let lastRan: number;
 
-export const throttle = (fn: VoidFunction, delay: number) => {
-    const { get, set } = useStorage("session");
-    const time = Date.now();
+  return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
+    const context = this; // Correctly type 'this'
+    const now = Date.now();
 
-    const last: number = get(`${fn.name}`);
-
-    if (last && time - last < delay) {
-        return;
+    if (!lastRan) {
+      func.apply(context, args);
+      lastRan = now;
     } else {
-        set(`${fn.name}`, time);
-        fn();
+      clearTimeout(lastFunc);
+      lastFunc = setTimeout(() => {
+        if (now - lastRan >= limit) {
+          func.apply(context, args);
+          lastRan = now;
+        }
+      }, limit - (now - lastRan));
     }
-};
+  };
+}
