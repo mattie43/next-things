@@ -44,16 +44,23 @@ export default function SingleDungeon({ index, dung }: CanvasCropProps) {
     updateCrossedDungeons(dung.name);
   };
 
+  const opacityCheck = () => {
+    if (isCrossed) return "opacity-30";
+    return "opacity-100 hover:opacity-80";
+  };
+
   return (
     <div
-      className="text-center"
-      style={{ opacity: isCrossed ? 0.3 : 1 }}
+      className={`text-center ${isCrossed ? "opacity-30" : "opacity-100"}`}
       onClick={handleDungeonClick}
     >
       <Link className="text-sm" href={link} target="_blank" hidden={!showNames}>
         {dung.name}
       </Link>
-      <canvas className="m-auto" ref={canvasRef} />
+      <canvas
+        className={`m-auto cursor-pointer ${opacityCheck()}`}
+        ref={canvasRef}
+      />
     </div>
   );
 }
