@@ -5,15 +5,11 @@ import dungsPNG from "@/app/rotmg/dungeons/imgs/rotmg-dungeons.png";
 import Link from "next/link";
 import useLocalStorage from "@/hooks/useLocalStorage";
 
-interface CanvasCropProps {
-  index: number;
-  dung: any;
-}
-
-export default function SingleDungeon({ index, dung }: CanvasCropProps) {
+export default function SingleDungeon({ dung }: any) {
   const { data: crossedDungeons, updateData: updateCrossedDungeons } =
     useLocalStorage("crossed-dungeons", []);
   const { data: showNames } = useLocalStorage("show-dugneon-names", true);
+  const { data: hideCompleted } = useLocalStorage("hide-completed", false);
 
   const link = `https://www.realmeye.com/wiki/${dung.name
     .replaceAll(" ", "-")
@@ -36,7 +32,7 @@ export default function SingleDungeon({ index, dung }: CanvasCropProps) {
     img.onload = () => {
       canvas.width = w;
       canvas.height = h;
-      ctx.drawImage(img, 0, index * 82, w, h, 0, 0, w, h);
+      ctx.drawImage(img, 0, dung.imageInd * 82, w, h, 0, 0, w, h);
     };
   }, [dung]);
 
@@ -52,14 +48,20 @@ export default function SingleDungeon({ index, dung }: CanvasCropProps) {
   return (
     <div
       className={`text-center ${isCrossed ? "opacity-30" : "opacity-100"}`}
-      onClick={handleDungeonClick}
+      hidden={hideCompleted && isCrossed}
     >
-      <Link className="text-sm" href={link} target="_blank" hidden={!showNames}>
+      <Link
+        className="text-sm hover:underline"
+        href={link}
+        target="_blank"
+        hidden={!showNames}
+      >
         {dung.name}
       </Link>
       <canvas
         className={`m-auto cursor-pointer ${opacityCheck()}`}
         ref={canvasRef}
+        onClick={handleDungeonClick}
       />
     </div>
   );

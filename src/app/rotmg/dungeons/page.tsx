@@ -1,18 +1,17 @@
 "use client";
 
-import { ROTMG_REALM_DUNGEONS } from "./rotmgDungeons.constants";
 import SidePanel from "./components/SidePanel";
-import SingleDungeon from "./components/SingleDungeon";
+import NormalSort from "./components/NormalSort";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import ByFameBonusSort from "./components/ByFameBonusSort";
 
 export default function page() {
+  const { data: sortByFameBonus } = useLocalStorage("fame-bonus", false);
+
   return (
     <div className="flex flex-row h-screen">
       <SidePanel />
-      <div className="overflow-auto grid grid-cols-3 xl:grid-cols-5 w-full h-full p-2">
-        {ROTMG_REALM_DUNGEONS.map((dung, i) => (
-          <SingleDungeon key={i} index={i} dung={dung} />
-        ))}
-      </div>
+      {sortByFameBonus ? <ByFameBonusSort /> : <NormalSort />}
     </div>
   );
 }
