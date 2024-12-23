@@ -363,7 +363,7 @@ export const ROTMG_EVENT_DUNGEONS = [
 
 export const ROTMG_WORMHOLE_DUNGEONS = [
   {
-    name: "Malogla",
+    name: "Malogia",
     difficulty: 5,
     width: 82,
     height: 82,

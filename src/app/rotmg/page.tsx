@@ -1,9 +1,5 @@
-import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default function page() {
-  return (
-    <div>
-      <Link href="/rotmg/dungeons">Dungeons</Link>
-    </div>
-  );
+  return redirect("/rotmg/dungeons");
 }

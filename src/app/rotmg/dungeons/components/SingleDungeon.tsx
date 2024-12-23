@@ -50,12 +50,7 @@ export default function SingleDungeon({ dung }: any) {
       className={`text-center ${isCrossed ? "opacity-30" : "opacity-100"}`}
       hidden={hideCompleted && isCrossed}
     >
-      <Link
-        className="text-sm hover:underline"
-        href={link}
-        target="_blank"
-        hidden={!showNames}
-      >
+      <Link className="text-sm" href={link} target="_blank" hidden={!showNames}>
         {dung.name}
       </Link>
       <canvas

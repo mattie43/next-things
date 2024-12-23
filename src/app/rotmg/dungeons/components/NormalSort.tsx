@@ -12,7 +12,7 @@ import SingleDungeon from "./SingleDungeon";
 
 export default function NormalSort() {
   return (
-    <div className="overflow-auto grid grid-cols-3 xl:grid-cols-5 w-full h-full p-2 items-center">
+    <div className="overflow-auto grid grid-cols-3 xl:grid-cols-5 w-full p-2 items-center">
       <Typography
         variant="body2"
         className="text-center col-span-3 xl:col-span-5 p-2"

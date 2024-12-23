@@ -1,3 +1,10 @@
+import RotmgToolbar from "./RotmgToolbar";
+
 export default function layout({ children }: any) {
-  return <>{children}</>;
+  return (
+    <div className="flex flex-col h-full w-full">
+      {/* <RotmgToolbar /> */}
+      {children}
+    </div>
+  );
 }
