@@ -1,9 +1,11 @@
-import RotmgToolbar from "./RotmgToolbar";
+"use client";
 
-export default function layout({ children }: any) {
+import SidePanel from "./dungeons/components/SidePanel";
+
+export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col h-full w-full">
-      {/* <RotmgToolbar /> */}
+    <div className="flex flex-row h-full">
+      <SidePanel />
       {children}
     </div>
   );

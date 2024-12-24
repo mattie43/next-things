@@ -3,6 +3,7 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 import ShowNamesSwitch from "./ShowNamesSwitch";
 import HideCompletedSwitch from "./HideCompletedSwitch";
 import ByFameBonusSwitch from "./ByFameBonusSwitch";
+import RotmgTabs from "./RotmgTabs";
 
 export default function SidePanel() {
   const { setData } = useLocalStorage("crossed-dungeons", []);
@@ -13,6 +14,7 @@ export default function SidePanel() {
 
   return (
     <div className="h-screen border-r-2 border-slate-500 flex flex-col items-center p-2">
+      <RotmgTabs />
       <ShowNamesSwitch />
       <HideCompletedSwitch />
       <ByFameBonusSwitch />
