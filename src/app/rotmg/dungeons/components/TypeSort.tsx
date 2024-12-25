@@ -10,9 +10,9 @@ import {
 } from "../rotmgDungeons.constants";
 import SingleDungeon from "./SingleDungeon";
 
-export default function NormalSort() {
+export default function TypeSort() {
   return (
-    <div className="overflow-auto grid grid-cols-3 xl:grid-cols-5 w-full p-2 items-center">
+    <div className="overflow-auto grid grid-cols-3 xl:grid-cols-5 w-full p-2 items-center gap-y-2">
       <Typography
         variant="body2"
         className="text-center col-span-3 xl:col-span-5 p-2"

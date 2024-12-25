@@ -1,3 +1,11 @@
+export type TRotmgDungeon = {
+  name: string;
+  difficulty: number;
+  height: number;
+  width: number;
+  imageInd: number;
+};
+
 export const ROTMG_REALM_DUNGEONS = [
   {
     name: "Pirate Cave",

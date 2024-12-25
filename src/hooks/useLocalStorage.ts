@@ -13,28 +13,20 @@ export default function useLocalStorage(key: string, initialValue: any) {
     });
   };
 
-  const { data, mutate } = useSWR<any>(key, fetcher);
+  const { data, isLoading, mutate } = useSWR<any>(key, fetcher);
 
   const setData = (value: any) => {
-    localStorage.setItem(key, JSON.stringify(value));
-    mutate();
-  };
-
-  const updateData = (value: any) => {
-    if (!Array.isArray(data)) {
-      return console.error("Data is not an array, cannot update");
-    }
-
-    let newData = [...data];
-    const found = newData?.includes?.(value);
-    if (found) {
-      newData = newData.filter((d) => d !== value);
+    if (typeof value === "function") {
+      mutate((currentData: any) => {
+        const newValue = value(currentData);
+        localStorage.setItem(key, JSON.stringify(newValue));
+        return newValue;
+      });
     } else {
-      newData = [...newData, value];
+      localStorage.setItem(key, JSON.stringify(value));
+      mutate();
     }
-    localStorage.setItem(key, JSON.stringify(newData));
-    mutate();
   };
 
-  return { data, setData, updateData };
+  return { data, setData, isLoading };
 }
