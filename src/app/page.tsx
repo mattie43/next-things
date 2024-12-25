@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center h-screen px-[10vw] gap-6 text-lg">
+    <div className="flex flex-col justify-center h-screen px-[10vw] gap-6 text-2xl">
       <p>{body}</p>
       <p>{body2}</p>
       <div id="highlighted_links" className="flex gap-2">
