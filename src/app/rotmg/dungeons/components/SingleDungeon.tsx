@@ -47,10 +47,18 @@ export default function SingleDungeon({ dung }: { dung: TRotmgDungeon }) {
   };
 
   const updateCrossedDungeons = () => {
-    setSettings((prev) => ({
-      ...prev,
-      crossedDungeons: [...prev.crossedDungeons, dung.name],
-    }));
+    const currentDungeons = settings.crossedDungeons;
+    if (currentDungeons.includes(dung.name)) {
+      setSettings((prev) => ({
+        ...prev,
+        crossedDungeons: currentDungeons.filter((d) => d !== dung.name),
+      }));
+    } else {
+      setSettings((prev) => ({
+        ...prev,
+        crossedDungeons: [...prev.crossedDungeons, dung.name],
+      }));
+    }
   };
 
   const hide = hideCompleted && isCrossed;
