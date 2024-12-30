@@ -18,9 +18,11 @@ export default function RotmgTabs() {
         value="/rotmg/dungeons"
         sx={{ fontSize: ".8rem" }}
       />
+      <Tab label="Map" value="/rotmg/map" sx={{ fontSize: ".8rem" }} />
       <Tab
         label="Event Tracker"
         value="/rotmg/events"
+        disabled
         sx={{ fontSize: ".8rem" }}
       />
     </Tabs>

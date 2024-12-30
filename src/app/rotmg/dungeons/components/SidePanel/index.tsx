@@ -1,28 +1,16 @@
-import { Button } from "@mui/material";
-import useSettings from "@/app/rotmg/dungeons/useSettings.hook";
-import ShowNamesSwitch from "./ShowNamesSwitch";
-import HideCompletedSwitch from "./HideCompletedSwitch";
-import SortBy from "./SortBy";
+import { usePathname } from "next/navigation";
 import RotmgTabs from "./RotmgTabs";
-import ShowDifficultySwitch from "./ShowDifficultySwitch";
+import MapPanel from "./MapPanel";
+import DungeonsPanel from "./DungeonsPanel";
 
 export default function SidePanel() {
-  const { setSettings } = useSettings();
-
-  const handleReset = () => {
-    setSettings((prev) => ({ ...prev, crossedDungeons: [] }));
-  };
+  const path = usePathname();
 
   return (
-    <div className="h-screen border-r-2 border-slate-500 flex flex-col items-center p-4 gap-4">
+    <div className="h-screen border-r-2 border-slate-500 flex flex-col items-center p-4 gap-4 min-w-fit">
       <RotmgTabs />
-      <ShowNamesSwitch />
-      <ShowDifficultySwitch />
-      <HideCompletedSwitch />
-      <SortBy />
-      <Button size="small" onClick={handleReset}>
-        Reset Dungeons
-      </Button>
+      {path === "/rotmg/map" && <MapPanel />}
+      {path === "/rotmg/dungeons" && <DungeonsPanel />}
     </div>
   );
 }
