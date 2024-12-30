@@ -30,6 +30,7 @@ type TRotmgSettings = {
     id: string;
     label: string;
   };
+  showInfoTip: boolean;
 };
 
 const defaultSettings: TRotmgSettings = {
@@ -38,6 +39,7 @@ const defaultSettings: TRotmgSettings = {
   hideCompleted: false,
   crossedDungeons: [],
   sortBy: sortItems[0],
+  showInfoTip: true,
 };
 
 export default function useSettings() {

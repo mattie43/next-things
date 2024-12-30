@@ -1,7 +1,7 @@
 "use client";
 
 import { Autocomplete, TextField } from "@mui/material";
-import useSettings, { sortItems } from "@/app/rotmg/dungeons/useSettings.hook";
+import useSettings, { sortItems } from "@/app/rotmg/useSettings.hook";
 
 export default function SortBy() {
   const { settings, setSettings } = useSettings();

@@ -1,7 +1,7 @@
 import { InfoOutlined } from "@mui/icons-material";
 import { Link } from "@mui/material";
 import Image from "next/image";
-import realmMapPNG from "@/app/rotmg/dungeons/imgs/realm_map.png";
+import realmMapPNG from "@/app/rotmg/imgs/realm_map.png";
 
 export default function page() {
   return (
@@ -14,7 +14,7 @@ export default function page() {
         Images are taken from DECA blog post
       </Link>
       <Link href="https://i.imgur.com/SxZcOsu.jpeg" target="_blank">
-        Realm rework updated drop table
+        Realm rework updated drop table image
       </Link>
       <Image src={realmMapPNG} alt="realm map" height={1600} width={1600} />
     </div>

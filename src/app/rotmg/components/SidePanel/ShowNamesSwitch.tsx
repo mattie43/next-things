@@ -1,21 +1,21 @@
 "use client";
 
+import useSettings from "@/app/rotmg/useSettings.hook";
 import { Switch, Typography } from "@mui/material";
-import useSettings from "@/app/rotmg/dungeons/useSettings.hook";
 
-export default function HideCompletedSwitch() {
+export default function ShowNamesSwitch() {
   const { settings, setSettings } = useSettings();
 
   const handleChange = () => {
-    setSettings((prev) => ({ ...prev, hideCompleted: !prev.hideCompleted }));
+    setSettings((prev) => ({ ...prev, showNames: !prev.showNames }));
   };
 
   return (
     <div className="flex gap-2 items-center">
       <Typography variant="caption" className="whitespace-nowrap">
-        Hide completed
+        Show names
       </Typography>
-      <Switch checked={settings.hideCompleted} onChange={handleChange} />
+      <Switch checked={settings.showNames} onChange={handleChange} />
     </div>
   );
 }

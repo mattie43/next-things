@@ -1,21 +1,21 @@
 "use client";
 
-import useSettings from "@/app/rotmg/dungeons/useSettings.hook";
+import useSettings from "@/app/rotmg/useSettings.hook";
 import { Switch, Typography } from "@mui/material";
 
-export default function ShowNamesSwitch() {
+export default function ShowDifficultySwitch() {
   const { settings, setSettings } = useSettings();
 
   const handleChange = () => {
-    setSettings((prev) => ({ ...prev, showNames: !prev.showNames }));
+    setSettings((prev) => ({ ...prev, showDifficulty: !prev.showDifficulty }));
   };
 
   return (
     <div className="flex gap-2 items-center">
       <Typography variant="caption" className="whitespace-nowrap">
-        Show names
+        Show difficulty
       </Typography>
-      <Switch checked={settings.showNames} onChange={handleChange} />
+      <Switch checked={settings.showDifficulty} onChange={handleChange} />
     </div>
   );
 }

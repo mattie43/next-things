@@ -1,9 +1,10 @@
 import { Button } from "@mui/material";
+import useSettings from "@/app/rotmg/useSettings.hook";
 import HideCompletedSwitch from "./HideCompletedSwitch";
 import ShowDifficultySwitch from "./ShowDifficultySwitch";
 import ShowNamesSwitch from "./ShowNamesSwitch";
 import SortBy from "./SortBy";
-import useSettings from "@/app/rotmg/dungeons/useSettings.hook";
+import ShowInfoTipSwitch from "./ShowInfoTipSwitch";
 
 export default function DungeonsPanel() {
   const { setSettings } = useSettings();
@@ -14,12 +15,13 @@ export default function DungeonsPanel() {
 
   return (
     <>
+      <ShowInfoTipSwitch />
       <ShowNamesSwitch />
       <ShowDifficultySwitch />
       <HideCompletedSwitch />
       <SortBy />
       <Button size="small" onClick={handleReset}>
-        Reset Dungeons
+        Reset Completed
       </Button>
     </>
   );

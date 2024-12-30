@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import {
   ROTMG_COMBINED_DUNGEONS,
   ROTMG_DUNGEON_FAME_BONUSES,
-} from "../rotmgDungeons.constants";
+} from "@/app/rotmg/rotmgDungeons.constants";
 import SingleDungeon from "./SingleDungeon";
 import { pastelColors } from "@/constants";
 

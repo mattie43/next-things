@@ -1,4 +1,4 @@
-import { ROTMG_COMBINED_DUNGEONS } from "../rotmgDungeons.constants";
+import { ROTMG_COMBINED_DUNGEONS } from "@/app/rotmg/rotmgDungeons.constants";
 import SingleDungeon from "./SingleDungeon";
 
 export default function OtherSort({

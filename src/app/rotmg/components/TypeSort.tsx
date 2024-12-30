@@ -7,8 +7,8 @@ import {
   ROTMG_ORYX_DUNGEONS,
   ROTMG_HEROIC_DUNGEONS,
   ROTMG_SPECIAL_DUNGEONS,
-} from "../rotmgDungeons.constants";
-import SingleDungeon from "./SingleDungeon";
+} from "@/app/rotmg/rotmgDungeons.constants";
+import SingleDungeon from "@/app/rotmg/components/SingleDungeon";
 
 export default function TypeSort() {
   return (

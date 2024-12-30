@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { TRotmgDungeon } from "@/app/rotmg/dungeons/rotmgDungeons.constants";
+import { TRotmgDungeon } from "@/app/rotmg/rotmgDungeons.constants";
 import { default as NextImage } from "next/image";
-import dungsPNG from "@/app/rotmg/dungeons/imgs/rotmg-dungeons.png";
-import gravestonePNG from "@/app/rotmg/dungeons/imgs/gravestone.png";
-import halfGravestonePNG from "@/app/rotmg/dungeons/imgs/half_gravestone.png";
+import dungsPNG from "@/app/rotmg/imgs/rotmg-dungeons.png";
+import gravestonePNG from "@/app/rotmg/imgs/gravestone.png";
+import halfGravestonePNG from "@/app/rotmg/imgs/half_gravestone.png";
 import Link from "next/link";
-import useSettings from "@/app/rotmg/dungeons/useSettings.hook";
+import useSettings from "@/app/rotmg/useSettings.hook";
 
 export default function SingleDungeon({ dung }: { dung: TRotmgDungeon }) {
   const { settings, setSettings } = useSettings();
