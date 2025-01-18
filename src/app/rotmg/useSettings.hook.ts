@@ -31,6 +31,7 @@ type TRotmgSettings = {
     label: string;
   };
   showInfoTip: boolean;
+  eventTrackerList: string[];
 };
 
 const defaultSettings: TRotmgSettings = {
@@ -40,6 +41,7 @@ const defaultSettings: TRotmgSettings = {
   crossedDungeons: [],
   sortBy: sortItems[0],
   showInfoTip: true,
+  eventTrackerList: [],
 };
 
 export default function useSettings() {

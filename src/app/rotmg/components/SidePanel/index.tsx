@@ -2,6 +2,7 @@ import { usePathname } from "next/navigation";
 import RotmgTabs from "./RotmgTabs";
 import MapPanel from "./MapPanel";
 import DungeonsPanel from "./DungeonsPanel";
+import EventsPanel from "./EventsPanel";
 
 export default function SidePanel() {
   const path = usePathname();
@@ -11,6 +12,7 @@ export default function SidePanel() {
       <RotmgTabs />
       {path === "/rotmg/map" && <MapPanel />}
       {path === "/rotmg/dungeons" && <DungeonsPanel />}
+      {path === "/rotmg/events" && <EventsPanel />}
     </div>
   );
 }

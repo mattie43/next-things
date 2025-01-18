@@ -10,12 +10,13 @@ type TEvent = {
   eventId: string;
   realm: string;
   server: string;
-  realmCount: number; // Out of 85
+  realmCount: string;
   unknownNumber: number;
   realmScore: number;
   spawnTime: string;
   uid: string;
   unknownBoolean: boolean;
+  name: string;
 };
 
 export default function useEventTracker() {
@@ -23,12 +24,14 @@ export default function useEventTracker() {
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  const { data, isLoading } = useSWR<TEventAPI>(url, fetcher);
+  const { data, isLoading, isValidating } = useSWR<TEventAPI>(url, fetcher, {
+    refreshInterval: 10000,
+  });
 
-  const items = () => {
+  const items: () => TEvent[] = () => {
     if (!data) return [];
-    const splitStr = data.value.split("\n");
-    const pipeSplit = splitStr.map((item: string) => item.split("|"));
+    const lineSplit = data.value.split("\n");
+    const pipeSplit = lineSplit.map((item: string) => item.split("|"));
     const obj = pipeSplit.map((item: string[]) => {
       const name = events[item[0]] || dungeons[item[0]] || "Unknown";
       const realmCount = `${item[3]}/${item[1] === "Nexus" ? 200 : 85}`;
@@ -49,5 +52,27 @@ export default function useEventTracker() {
     return obj;
   };
 
-  return { items: items(), isLoading };
+  const topRealms = () => {
+    const scores = {} as {
+      [key: string]: {
+        server: string;
+        realm: string;
+        score: number;
+      };
+    };
+    items().forEach((item) => {
+      if (!item.realmScore || item.realmScore <= 0) return;
+      scores[`${item.server} ${item.realm}`] = {
+        server: item.server,
+        realm: item.realm,
+        score: item.realmScore,
+      };
+    });
+    const sortedScores = Object.values(scores).sort(
+      (a, b) => b.score - a.score
+    );
+    return sortedScores;
+  };
+
+  return { topRealms: topRealms(), events: items(), isLoading, isValidating };
 }

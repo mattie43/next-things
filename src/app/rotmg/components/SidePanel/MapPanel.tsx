@@ -86,7 +86,7 @@ export default function MapPanel() {
     <div className="flex flex-col gap-1">
       <Typography className="pt-4">Rookie Biomes</Typography>
       {rookieBiomes.map((item) => (
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-row gap-2" key={item.name}>
           <div
             style={{
               height: "24px",
@@ -99,7 +99,7 @@ export default function MapPanel() {
       ))}
       <Typography className="pt-8">Adept Biomes</Typography>
       {adeptBiomes.map((item) => (
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-row gap-2" key={item.name}>
           <div
             style={{
               height: "24px",
@@ -112,7 +112,7 @@ export default function MapPanel() {
       ))}
       <Typography className="pt-8">Veteran Biomes</Typography>
       {veteranBiomes.map((item) => (
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-row gap-2" key={item.name}>
           <div
             style={{
               height: "24px",

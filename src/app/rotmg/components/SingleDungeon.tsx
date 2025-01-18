@@ -65,7 +65,7 @@ export default function SingleDungeon({ dung }: { dung: TRotmgDungeon }) {
 
   return (
     <div
-      className={`flex flex-col items-center gap-1 ${
+      className={`flex flex-col text-center items-center gap-1 ${
         isCrossed ? "opacity-30" : "opacity-100"
       } ${hide ? "hidden" : ""}`}
     >
