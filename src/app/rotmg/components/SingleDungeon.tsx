@@ -11,7 +11,7 @@ import useSettings from "@/app/rotmg/useSettings.hook";
 
 export default function SingleDungeon({ dung }: { dung: TRotmgDungeon }) {
   const { settings, setSettings } = useSettings();
-  const isCrossed = settings.crossedDungeons.includes(dung.name);
+  const isCrossed = settings.crossedDungeons?.includes(dung.name);
   const hideCompleted = settings.hideCompleted;
   const showNames = settings.showNames;
   const showDifficulty = settings.showDifficulty;
@@ -48,7 +48,7 @@ export default function SingleDungeon({ dung }: { dung: TRotmgDungeon }) {
 
   const updateCrossedDungeons = () => {
     const currentDungeons = settings.crossedDungeons;
-    if (currentDungeons.includes(dung.name)) {
+    if (currentDungeons?.includes(dung.name)) {
       setSettings((prev) => ({
         ...prev,
         crossedDungeons: currentDungeons.filter((d) => d !== dung.name),

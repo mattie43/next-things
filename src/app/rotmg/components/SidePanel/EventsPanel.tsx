@@ -8,7 +8,7 @@ export default function EventsPanel() {
   const { settings, setSettings } = useSettings();
   const [search, setSearch] = useState("");
   const items = options.filter((item) =>
-    item.toLowerCase().includes(search.toLowerCase())
+    item.toLowerCase()?.includes(search.toLowerCase())
   );
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +17,7 @@ export default function EventsPanel() {
 
   const handleCheck = (name: string) => {
     const currList = settings.eventTrackerList;
-    if (currList.includes(name)) {
+    if (currList?.includes(name)) {
       setSettings((prev) => ({
         ...prev,
         eventTrackerList: currList.filter((d) => d !== name),

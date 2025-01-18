@@ -15,7 +15,7 @@ export default function page() {
 
   const filteredEvents = events.filter((event) => {
     if (
-      settings.eventTrackerList.includes("Dungeon Key") &&
+      settings.eventTrackerList?.includes("Dungeon Key") &&
       event.realm === "Nexus"
     )
       return true;
