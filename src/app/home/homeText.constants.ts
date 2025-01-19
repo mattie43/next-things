@@ -1,40 +1,13 @@
 export const body = "Hi.";
 export const body2 = "My name is Matt Ericksen.";
-export const body3 = [
+export const body3 = "This is where I put things that I build.";
+export const links = [
   {
-    text: "This",
-    route: "/scroller",
-  },
-  {
-    text: "is",
+    text: "Siege",
     route: "/siege",
   },
   {
-    text: "where",
+    text: "ROTMG",
     route: "/rotmg/dungeons",
-  },
-  {
-    text: "I",
-    route: "/",
-  },
-  {
-    text: "put",
-    route: "/",
-  },
-  {
-    text: "things",
-    route: "/",
-  },
-  {
-    text: "that",
-    route: "/",
-  },
-  {
-    text: "I",
-    route: "/",
-  },
-  {
-    text: "build.",
-    route: "/",
   },
 ];
