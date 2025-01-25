@@ -60,7 +60,8 @@ export default function useEventTracker() {
         score: number;
       };
     };
-    items().forEach((item) => {
+    const reversed = items().reverse();
+    reversed?.forEach((item) => {
       if (!item.realmScore || item.realmScore <= 0) return;
       scores[`${item.server} ${item.realm}`] = {
         server: item.server,
