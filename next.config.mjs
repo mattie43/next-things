@@ -11,6 +11,9 @@ const nextConfig = {
       {
         hostname: "*realm.wiki*",
       },
+      {
+        hostname: "*imgur*",
+      },
     ],
   },
 };

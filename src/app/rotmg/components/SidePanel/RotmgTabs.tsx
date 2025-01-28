@@ -18,11 +18,13 @@ export default function RotmgTabs() {
         value="/rotmg/dungeons"
         sx={{ fontSize: ".8rem" }}
       />
+      <Tab label="Dailies" value="/rotmg/dailies" sx={{ fontSize: ".8rem" }} />
       <Tab label="Map" value="/rotmg/map" sx={{ fontSize: ".8rem" }} />
       <Tab
         label="Event Tracker"
         value="/rotmg/events"
-        sx={{ fontSize: ".8rem" }}
+        sx={{ fontSize: ".8rem", width: "1px" }}
+        wrapped
       />
     </Tabs>
   );

@@ -43,7 +43,7 @@ export default function EventsPanel() {
         value={search}
         onChange={handleSearch}
         startAdornment={<Search fontSize="small" />}
-        sx={{ fontSize: "small", width: "250px" }}
+        sx={{ fontSize: "small" }}
       />
       <Button size="small" sx={{ margin: "8px 0" }} onClick={resetList}>
         Reset selected
