@@ -7,15 +7,15 @@ export default function HideCompletedSwitch() {
   const { settings, setSettings } = useSettings();
 
   const handleChange = () => {
-    setSettings((prev) => ({ ...prev, hideCompleted: !prev.hideCompleted }));
+    setSettings((prev) => ({ ...prev, showGuides: !prev.showGuides }));
   };
 
   return (
     <div className="flex gap-2 items-center">
       <Typography variant="caption" className="whitespace-nowrap">
-        Hide completed
+        Show top of page guides
       </Typography>
-      <Switch checked={settings.hideCompleted} onChange={handleChange} />
+      <Switch checked={settings.showGuides} onChange={handleChange} />
     </div>
   );
 }

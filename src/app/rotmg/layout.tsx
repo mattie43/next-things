@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import SidePanel from "./components/SidePanel";
+import AppToolbar from "./components/AppToolbar";
 import useSettings from "./useSettings.hook";
+import SettingsDialog from "./components/SettingsDialog";
 import { classImages } from "@/app/rotmg/imgs/classes/classImages";
 
 export default function layout({ children }: { children: React.ReactNode }) {
@@ -24,9 +26,13 @@ export default function layout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="flex flex-row h-full">
-      <SidePanel />
-      {children}
+    <div className="flex flex-col h-full">
+      <AppToolbar />
+      <div className="flex flex-row flex-1 overflow-hidden">
+        <SidePanel />
+        {children}
+      </div>
+      <SettingsDialog />
     </div>
   );
 }

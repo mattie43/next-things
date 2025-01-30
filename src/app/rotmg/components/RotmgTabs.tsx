@@ -23,7 +23,7 @@ export default function RotmgTabs() {
       <Tab
         label="Event Tracker"
         value="/rotmg/events"
-        sx={{ fontSize: ".8rem", width: "1px" }}
+        sx={{ fontSize: ".8rem" }}
         wrapped
       />
     </Tabs>

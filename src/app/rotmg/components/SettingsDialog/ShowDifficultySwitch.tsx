@@ -13,7 +13,7 @@ export default function ShowDifficultySwitch() {
   return (
     <div className="flex gap-2 items-center">
       <Typography variant="caption" className="whitespace-nowrap">
-        Show difficulty
+        Show dungeon difficulty
       </Typography>
       <Switch checked={settings.showDifficulty} onChange={handleChange} />
     </div>

@@ -69,19 +69,19 @@ export default function DailiesPanel() {
   return (
     <div className="flex flex-col flex-1 overflow-auto">
       <Input
-        size="small"
         startAdornment={<Search fontSize="small" />}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        sx={{ mb: 1 }}
+        sx={{ mb: 1, fontSize: "small" }}
       />
       <div className="flex flex-col overflow-auto">
         {items.map((item) => (
-          <>
+          <div>
             <Typography
               fontSize="large"
               sx={{ m: "8px 0" }}
               hidden={!item.quests.length}
+              key={item.title}
             >
               {item.title}
             </Typography>
@@ -101,7 +101,7 @@ export default function DailiesPanel() {
                 {quest.task}
               </MenuItem>
             ))}
-          </>
+          </div>
         ))}
       </div>
     </div>

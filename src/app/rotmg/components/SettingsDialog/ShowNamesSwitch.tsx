@@ -3,19 +3,19 @@
 import useSettings from "@/app/rotmg/useSettings.hook";
 import { Switch, Typography } from "@mui/material";
 
-export default function ShowInfoTipSwitch() {
+export default function ShowNamesSwitch() {
   const { settings, setSettings } = useSettings();
 
   const handleChange = () => {
-    setSettings((prev) => ({ ...prev, showInfoTip: !prev.showInfoTip }));
+    setSettings((prev) => ({ ...prev, showNames: !prev.showNames }));
   };
 
   return (
     <div className="flex gap-2 items-center">
       <Typography variant="caption" className="whitespace-nowrap">
-        Show page guide
+        Show dungoeon names
       </Typography>
-      <Switch checked={settings.showInfoTip} onChange={handleChange} />
+      <Switch checked={settings.showNames} onChange={handleChange} />
     </div>
   );
 }

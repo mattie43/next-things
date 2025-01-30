@@ -31,7 +31,7 @@ type TRotmgSettings = {
     id: string;
     label: string;
   };
-  showInfoTip: boolean;
+  showGuides: boolean;
   eventTrackerList: string[];
   dailyQuestList: TDailyQuest[];
 };
@@ -42,7 +42,7 @@ const defaultSettings: TRotmgSettings = {
   hideCompleted: false,
   crossedDungeons: [],
   sortBy: sortItems[0],
-  showInfoTip: true,
+  showGuides: true,
   eventTrackerList: [],
   dailyQuestList: [],
 };
@@ -63,15 +63,15 @@ export default function useSettings() {
   const { data, isLoading, mutate } = useSWR<TRotmgSettings>(KEY, fetcher);
 
   const settings = {
-    showDifficulty: data?.showDifficulty || defaultSettings.showDifficulty,
-    showNames: data?.showNames || defaultSettings.showNames,
-    hideCompleted: data?.hideCompleted || defaultSettings.hideCompleted,
-    crossedDungeons: data?.crossedDungeons || defaultSettings.crossedDungeons,
-    sortBy: data?.sortBy || defaultSettings.sortBy,
-    showInfoTip: data?.showInfoTip || defaultSettings.showInfoTip,
+    showDifficulty: data?.showDifficulty ?? defaultSettings.showDifficulty,
+    showNames: data?.showNames ?? defaultSettings.showNames,
+    hideCompleted: data?.hideCompleted ?? defaultSettings.hideCompleted,
+    crossedDungeons: data?.crossedDungeons ?? defaultSettings.crossedDungeons,
+    sortBy: data?.sortBy ?? defaultSettings.sortBy,
+    showGuides: data?.showGuides ?? defaultSettings.showGuides,
     eventTrackerList:
-      data?.eventTrackerList || defaultSettings.eventTrackerList,
-    dailyQuestList: data?.dailyQuestList || defaultSettings.dailyQuestList,
+      data?.eventTrackerList ?? defaultSettings.eventTrackerList,
+    dailyQuestList: data?.dailyQuestList ?? defaultSettings.dailyQuestList,
   };
 
   const setSettings = (
