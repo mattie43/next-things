@@ -8,7 +8,7 @@ export default function SidePanel() {
   const path = usePathname();
 
   return (
-    <div className="h-screen border-r-2 border-slate-500 flex flex-col items-center p-4 gap-4 min-w-fit">
+    <div className="border-r-2 border-slate-500 flex flex-col flex-1 items-center p-4 gap-4 min-w-fit">
       {path === "/rotmg/dungeons" && <DungeonsPanel />}
       {path === "/rotmg/dailies" && <DailiesPanel />}
       {path === "/rotmg/map" && <MapPanel />}

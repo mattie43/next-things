@@ -6,7 +6,7 @@ export default function TopRealmScores() {
   const { topRealms } = useEventTracker();
 
   return (
-    <div className="flex flex-col p-4 items-center">
+    <div className="flex flex-col p-4 items-center col-span-2 2xl:col-span-3">
       <Typography fontWeight={700}>Top Realm Scores</Typography>
       <div className="flex flex-wrap gap-1 justify-center">
         {topRealms?.map((realm, index) => (
@@ -16,8 +16,8 @@ export default function TopRealmScores() {
             fontSize="small"
             className="border-2 p-1"
             style={{
-              borderColor: pastelColors[index % 5],
-              color: pastelColors[index % 5],
+              borderColor: pastelColors[index % pastelColors.length],
+              color: pastelColors[index % pastelColors.length],
             }}
           >
             {realm.server}-{realm.realm}: {realm.score}%

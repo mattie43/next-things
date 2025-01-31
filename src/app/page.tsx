@@ -16,7 +16,7 @@ export default function Home() {
             <Link
               href={item.route}
               style={{
-                color: pastelColors[i % 5],
+                color: pastelColors[i % pastelColors.length],
               }}
             >
               {item.text}

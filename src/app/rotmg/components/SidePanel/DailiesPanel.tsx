@@ -76,7 +76,7 @@ export default function DailiesPanel() {
       />
       <div className="flex flex-col overflow-auto">
         {items.map((item) => (
-          <div>
+          <div key={item.title}>
             <Typography
               fontSize="large"
               sx={{ m: "8px 0" }}

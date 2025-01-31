@@ -10,68 +10,51 @@ import {
 } from "@/app/rotmg/rotmgDungeons.constants";
 import SingleDungeon from "@/app/rotmg/components/SingleDungeon";
 
+const items = [
+  {
+    title: "Realm Dungeons",
+    dungeons: ROTMG_REALM_DUNGEONS,
+  },
+  {
+    title: "Event Dungeons",
+    dungeons: ROTMG_EVENT_DUNGEONS,
+  },
+  {
+    title: "Wormhole Dungeons",
+    dungeons: ROTMG_WORMHOLE_DUNGEONS,
+  },
+  {
+    title: "Oryx Dungeons",
+    dungeons: ROTMG_ORYX_DUNGEONS,
+  },
+  {
+    title: "Heroic Dungeons",
+    dungeons: ROTMG_HEROIC_DUNGEONS,
+  },
+  {
+    title: "Special Dungeons",
+    dungeons: ROTMG_SPECIAL_DUNGEONS,
+  },
+];
+
 export default function TypeSort() {
   return (
-    <div className="overflow-auto grid grid-cols-3 xl:grid-cols-5 w-full p-2 items-center gap-y-2">
-      <Typography
-        variant="body2"
-        className="text-center col-span-3 xl:col-span-5 p-2"
-        style={{ color: pastelColors[0] }}
-      >
-        --- Realm Dungeons ---
-      </Typography>
-      {ROTMG_REALM_DUNGEONS.map((dung) => (
-        <SingleDungeon key={dung.name} dung={dung} />
-      ))}
-      <Typography
-        variant="body2"
-        className="text-center col-span-3 xl:col-span-5 p-2"
-        style={{ color: pastelColors[1] }}
-      >
-        --- Event Dungeons ---
-      </Typography>
-      {ROTMG_EVENT_DUNGEONS.map((dung) => (
-        <SingleDungeon key={dung.name} dung={dung} />
-      ))}
-      <Typography
-        variant="body2"
-        className="text-center col-span-3 xl:col-span-5 p-2"
-        style={{ color: pastelColors[2] }}
-      >
-        --- Wormhole Dungeons ---
-      </Typography>
-      {ROTMG_WORMHOLE_DUNGEONS.map((dung) => (
-        <SingleDungeon key={dung.name} dung={dung} />
-      ))}
-      <Typography
-        variant="body2"
-        className="text-center col-span-3 xl:col-span-5 p-2"
-        style={{ color: pastelColors[3] }}
-      >
-        --- Oryx Dungeons ---
-      </Typography>
-      {ROTMG_ORYX_DUNGEONS.map((dung) => (
-        <SingleDungeon key={dung.name} dung={dung} />
-      ))}
-      <Typography
-        variant="body2"
-        className="text-center col-span-3 xl:col-span-5 p-2"
-        style={{ color: pastelColors[4] }}
-      >
-        --- Heroic Dungeons ---
-      </Typography>
-      {ROTMG_HEROIC_DUNGEONS.map((dung) => (
-        <SingleDungeon key={dung.name} dung={dung} />
-      ))}
-      <Typography
-        variant="body2"
-        className="text-center col-span-3 xl:col-span-5 p-2"
-        style={{ color: pastelColors[0] }}
-      >
-        --- Special Dungeons ---
-      </Typography>
-      {ROTMG_SPECIAL_DUNGEONS.map((dung) => (
-        <SingleDungeon key={dung.name} dung={dung} />
+    <div className="flex flex-col overflow-auto w-full gap-2">
+      {items.map((item, ind) => (
+        <div key={item.title} className="flex flex-col">
+          <Typography
+            variant="body2"
+            className="text-center p-2"
+            style={{ color: pastelColors[ind % pastelColors.length] }}
+          >
+            --- {item.title} ---
+          </Typography>
+          <div className="grid grid-cols-3 xl:grid-cols-5 w-full p-2 items-center gap-y-2">
+            {item.dungeons.map((dung) => (
+              <SingleDungeon key={dung.name} dung={dung} />
+            ))}
+          </div>
+        </div>
       ))}
     </div>
   );

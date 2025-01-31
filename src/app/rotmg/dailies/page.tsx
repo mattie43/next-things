@@ -4,15 +4,17 @@ import { pastelColors } from "@/constants";
 import { IconButton, Tooltip, Typography } from "@mui/material";
 import { MARKS } from "@/app/rotmg/imgs/marks";
 import { useState } from "react";
-import { Close, InfoOutlined } from "@mui/icons-material";
+import { Close } from "@mui/icons-material";
+import { COMBINED_REWARDS } from "../imgs/rewards";
 import useSettings from "@/app/rotmg/useSettings.hook";
 import Image from "next/image";
-import { COMBINED_REWARDS } from "../imgs/rewards";
+import Infobox from "../components/Infobox";
 
 export default function page() {
   const { settings, setSettings } = useSettings();
   const [marked, setMarked] = useState<string[]>([]);
   const quests = settings.dailyQuestList;
+  const showGuide = settings.showGuides;
 
   const handleRemove = (id?: string) => {
     setSettings((prev) => ({
@@ -31,22 +33,20 @@ export default function page() {
     });
   };
 
+  const info =
+    "Select tinkerer dailies from the side panel to start tracking them. Clicking on a mark will 'mark' it as collected. Clicking on the 'X' will remove the quest from the list.";
+
   return (
     <div className="flex flex-col h-full w-full">
-      <div className="flex items-center gap-1 py-4 px-[10vw] m-auto">
-        <InfoOutlined fontSize="small" />
-        <Typography fontSize="small">
-          Clicking on a mark will "mark" it as collected. Click on the "X" will
-          remove the quest from the list. Quests are remembered when leaving and
-          coming back, but collected marks are not.
-        </Typography>
-      </div>
+      {showGuide && <Infobox info={info} />}
       <div className="grid grid-cols-1 2xl:grid-cols-2 gap-2 px-4 p-4 overflow-auto w-full content-start flex-1">
         {quests?.map((quest, ind) => (
           <div
             key={quest.id}
             className="flex flex-col p-2 pr-10 relative"
-            style={{ border: `2px solid ${pastelColors[ind % 5]}` }}
+            style={{
+              border: `2px solid ${pastelColors[ind % pastelColors.length]}`,
+            }}
           >
             <IconButton
               sx={{ position: "absolute", top: 2, right: 2 }}

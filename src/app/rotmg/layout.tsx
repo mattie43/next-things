@@ -9,13 +9,15 @@ import { classImages } from "@/app/rotmg/imgs/classes/classImages";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   const { isLoading } = useSettings();
-  const randNum = Math.floor(Math.random() * 17);
+  const minute = new Date().getMinutes();
+  const randNum = minute % classImages.length;
 
   if (isLoading) {
     return (
       <div className="flex flex-col flex-1 items-center justify-center">
         <Image
           src={classImages[randNum]}
+          priority
           alt="loading"
           width={124}
           height={124}
