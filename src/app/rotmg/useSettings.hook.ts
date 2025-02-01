@@ -1,5 +1,6 @@
 import useSWR from "swr";
-import { TDailyQuest } from "./dailyQuests";
+import { TDailyQuest } from "./dailyQuests.constants.ts";
+import { TRotmgDungeon } from "./rotmgDungeons.constants";
 
 export const sortItems = [
   {
@@ -34,6 +35,7 @@ type TRotmgSettings = {
   showGuides: boolean;
   eventTrackerList: string[];
   dailyQuestList: TDailyQuest[];
+  dailyDungeonList: string[];
 };
 
 const defaultSettings: TRotmgSettings = {
@@ -45,6 +47,7 @@ const defaultSettings: TRotmgSettings = {
   showGuides: true,
   eventTrackerList: [],
   dailyQuestList: [],
+  dailyDungeonList: [],
 };
 
 export default function useSettings() {
@@ -72,6 +75,8 @@ export default function useSettings() {
     eventTrackerList:
       data?.eventTrackerList ?? defaultSettings.eventTrackerList,
     dailyQuestList: data?.dailyQuestList ?? defaultSettings.dailyQuestList,
+    dailyDungeonList:
+      data?.dailyDungeonList ?? defaultSettings.dailyDungeonList,
   };
 
   const setSettings = (

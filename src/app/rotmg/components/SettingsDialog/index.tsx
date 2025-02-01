@@ -23,6 +23,7 @@ export default function SettingsDialog() {
           <DungeonSort />
           <ResetCompletedDungeons />
         </div>
+        <hr className="border-slate-500 border w-full mb-2" />
         <Button onClick={closeDialog} size="small" sx={{ fontSize: "small" }}>
           Close [ESC]
         </Button>

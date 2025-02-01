@@ -1,5 +1,5 @@
-import { Search } from "@mui/icons-material";
-import { Input, MenuItem, Typography } from "@mui/material";
+import { Close, Search } from "@mui/icons-material";
+import { IconButton, Input, MenuItem, Typography } from "@mui/material";
 import { useState } from "react";
 import {
   BEGINNER_QUESTS,
@@ -8,15 +8,19 @@ import {
   SCOUT_QUESTS,
   STRANDARD_QUESTS,
   type TDailyQuest,
-} from "@/app/rotmg/dailyQuests";
+} from "@/app/rotmg/dailyQuests.constants";
 import { generateUID } from "@/helpers";
+import {
+  ROTMG_COMBINED_DUNGEONS,
+  TRotmgDungeon,
+} from "@/app/rotmg/rotmgDungeons.constants";
 import useSettings from "@/app/rotmg/useSettings.hook";
 
 export default function DailiesPanel() {
   const [search, setSearch] = useState("");
   const { setSettings } = useSettings();
 
-  const handleClick = (quest: TDailyQuest) => {
+  const handleQuestClick = (quest: TDailyQuest) => {
     const newQuest = {
       ...quest,
       id: generateUID(),
@@ -66,10 +70,35 @@ export default function DailiesPanel() {
     },
   ];
 
+  const handleDungeonClick = (dung: string) => {
+    setSettings((prev) => ({
+      ...prev,
+      dailyDungeonList: [...prev.dailyDungeonList, dung],
+    }));
+  };
+
+  const dungeons = ROTMG_COMBINED_DUNGEONS.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  ).filter((dung) => dung.name.toLowerCase().includes(search.toLowerCase()));
+
+  const Clear = () => {
+    if (!search.length) return undefined;
+
+    return (
+      <IconButton
+        onClick={() => setSearch("")}
+        sx={{ height: "24px", width: "24px" }}
+      >
+        <Close sx={{ fontSize: "20px" }} />
+      </IconButton>
+    );
+  };
+
   return (
     <div className="flex flex-col flex-1 w-[265px] overflow-hidden">
       <Input
         startAdornment={<Search fontSize="small" />}
+        endAdornment={<Clear />}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         sx={{ mb: 1, fontSize: "small" }}
@@ -96,12 +125,33 @@ export default function DailiesPanel() {
                     ? "default"
                     : "none",
                 }}
-                onClick={() => handleClick(quest)}
+                onClick={() => handleQuestClick(quest)}
               >
                 {quest.task}
               </MenuItem>
             ))}
           </div>
+        ))}
+        <Typography
+          fontSize="large"
+          sx={{ m: "8px 0" }}
+          hidden={!dungeons.length}
+        >
+          Dungeons
+        </Typography>
+        {dungeons.map((dung) => (
+          <MenuItem
+            key={dung.name}
+            sx={{
+              fontSize: "small",
+              display: dung.name.toLowerCase().includes(search.toLowerCase())
+                ? "default"
+                : "none",
+            }}
+            onClick={() => handleDungeonClick(dung.name)}
+          >
+            {dung.name}
+          </MenuItem>
         ))}
       </div>
     </div>

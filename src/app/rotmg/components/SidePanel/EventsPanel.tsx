@@ -1,7 +1,7 @@
 import useSettings from "@/app/rotmg/useSettings.hook";
 import { options } from "@/app/rotmg/events/events";
-import { Button, Checkbox, Input, Typography } from "@mui/material";
-import { Search } from "@mui/icons-material";
+import { Button, Checkbox, IconButton, Input, Typography } from "@mui/material";
+import { Close, Search } from "@mui/icons-material";
 import { useState } from "react";
 
 export default function EventsPanel() {
@@ -37,12 +37,26 @@ export default function EventsPanel() {
     }));
   };
 
+  const Clear = () => {
+    if (!search.length) return undefined;
+
+    return (
+      <IconButton
+        onClick={() => setSearch("")}
+        sx={{ height: "24px", width: "24px" }}
+      >
+        <Close sx={{ fontSize: "20px" }} />
+      </IconButton>
+    );
+  };
+
   return (
     <div className="flex flex-col flex-1 w-[260px] overflow-hidden">
       <Input
         value={search}
         onChange={handleSearch}
         startAdornment={<Search fontSize="small" />}
+        endAdornment={<Clear />}
         sx={{ fontSize: "small" }}
       />
       <Button size="small" sx={{ margin: "8px 0" }} onClick={resetList}>

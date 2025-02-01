@@ -8,6 +8,12 @@ export type TDailyQuest = {
 
 export const SCOUT_QUESTS = [
   {
+    task: "Scout the Abyss",
+    description: "Scout the Abyss of Demons and report back here!",
+    marks: ["Mark of Malphas"],
+    rewards: ["Potion of Vitality", "Potion of Vitality"],
+  },
+  {
     task: "Scout the Pit",
     description: "Scout the Snake Pit and report back here!",
     marks: ["Mark of Stheno"],
@@ -18,12 +24,6 @@ export const SCOUT_QUESTS = [
     description: "Scout the Toxic Sewers and report back here!",
     marks: ["Mark of Gulpord"],
     rewards: ["Potion of Defense", "Potion of Defense"],
-  },
-  {
-    task: "Scout the Abyss",
-    description: "Scout the Abyss of Demons and report back here!",
-    marks: ["Mark of Malphas"],
-    rewards: ["Potion of Vitality", "Potion of Vitality"],
   },
   {
     task: "Scout the Sprites",
@@ -55,7 +55,7 @@ export const SCOUT_QUESTS = [
     marks: ["Mark of the Archivist"],
     rewards: ["Potion of Vitality", "Potion of Wisdom"],
   },
-];
+].sort((a, b) => a.task.localeCompare(b.task));
 
 export const BEGINNER_QUESTS = [
   {
@@ -126,7 +126,7 @@ export const BEGINNER_QUESTS = [
     ],
     rewards: ["Beginner Quest Chest", "Treasure Map"],
   },
-];
+].sort((a, b) => a.task.localeCompare(b.task));
 
 export const STRANDARD_QUESTS = [
   {
@@ -372,7 +372,7 @@ export const STRANDARD_QUESTS = [
     ],
     rewards: ["Standard Quest Chest", "Cubic Jelly"],
   },
-];
+].sort((a, b) => a.task.localeCompare(b.task));
 
 export const MIGHTY_QUESTS = [
   {
@@ -630,7 +630,7 @@ export const MIGHTY_QUESTS = [
     ],
     rewards: ["Mighty Quest Chest"],
   },
-];
+].sort((a, b) => a.task.localeCompare(b.task));
 
 export const EPIC_QUESTS = [
   {
@@ -758,7 +758,7 @@ export const EPIC_QUESTS = [
     ],
     rewards: ["Spectral Epic Quest Chest", "Lucky Clover"],
   },
-];
+].sort((a, b) => a.task.localeCompare(b.task));
 
 export const COMBINED_QUESTS: TDailyQuest[] = [
   ...SCOUT_QUESTS,

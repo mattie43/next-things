@@ -8,7 +8,7 @@ import Image from "next/image";
 import useSettings from "../useSettings.hook";
 import Link from "next/link";
 
-export default function SingleDaily({ quest, index }: any) {
+export default function QuestDaily({ quest, index }: any) {
   const { setSettings } = useSettings();
   const [marked, setMarked] = useState<string[]>([]);
 
@@ -30,7 +30,7 @@ export default function SingleDaily({ quest, index }: any) {
   };
 
   const createURL = (id: string) => {
-    const split = id.toLowerCase().split(" ").join("-");
+    const split = id.toLowerCase().replace(" ", "-");
     return `https://www.realmeye.com/wiki/${split}`;
   };
 
