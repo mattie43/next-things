@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import { TDailyQuest } from "./dailyQuests.constants";
+import { useCallback } from "react";
 
 export const sortItems = [
   {
@@ -64,19 +65,24 @@ export default function useSettings() {
 
   const { data, isLoading, mutate } = useSWR<TRotmgSettings>(KEY, fetcher);
 
-  const settings = {
-    showDifficulty: data?.showDifficulty ?? defaultSettings.showDifficulty,
-    showNames: data?.showNames ?? defaultSettings.showNames,
-    hideCompleted: data?.hideCompleted ?? defaultSettings.hideCompleted,
-    crossedDungeons: data?.crossedDungeons ?? defaultSettings.crossedDungeons,
-    sortBy: data?.sortBy ?? defaultSettings.sortBy,
-    showGuides: data?.showGuides ?? defaultSettings.showGuides,
-    eventTrackerList:
-      data?.eventTrackerList ?? defaultSettings.eventTrackerList,
-    dailyQuestList: data?.dailyQuestList ?? defaultSettings.dailyQuestList,
-    dailyDungeonList:
-      data?.dailyDungeonList ?? defaultSettings.dailyDungeonList,
-  };
+  const settings = useCallback(
+    () => ({
+      showDifficulty: data?.showDifficulty ?? defaultSettings.showDifficulty,
+      showNames: data?.showNames ?? defaultSettings.showNames,
+      hideCompleted: data?.hideCompleted ?? defaultSettings.hideCompleted,
+      crossedDungeons: data?.crossedDungeons ?? defaultSettings.crossedDungeons,
+      sortBy: data?.sortBy ?? defaultSettings.sortBy,
+      showGuides: data?.showGuides ?? defaultSettings.showGuides,
+      eventTrackerList:
+        data?.eventTrackerList ?? defaultSettings.eventTrackerList,
+      dailyQuestList: data?.dailyQuestList ?? defaultSettings.dailyQuestList,
+      dailyDungeonList:
+        data?.dailyDungeonList ?? defaultSettings.dailyDungeonList,
+    }),
+    [data]
+  )();
+
+  console.log("settings", settings);
 
   const setSettings = (
     value: (currentData: TRotmgSettings) => TRotmgSettings
