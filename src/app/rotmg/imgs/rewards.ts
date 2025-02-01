@@ -23,7 +23,7 @@ export const CHESTS = {
   "Mighty Quest Chest": "https://i.imgur.com/sNONUvV.png",
   "Honeyed Epic Quest Chest": "https://i.imgur.com/W4U6UrC.png",
   "Royal Epic Quest Chest": "https://i.imgur.com/xox3Y8S.png",
-  "Marbled Epic Quest Chest": "https://i.imgur.com/2hbWbDi.png",
+  "Marble Epic Quest Chest": "https://i.imgur.com/2hbWbDi.png",
   "Cultish Epic Quest Chest": "https://i.imgur.com/yUb0NSS.png",
   "Voided Epic Quest Chest": "https://i.imgur.com/ePb2NF5.png",
   "Crystallized Epic Quest Chest": "https://i.imgur.com/Ehm1mkU.png",

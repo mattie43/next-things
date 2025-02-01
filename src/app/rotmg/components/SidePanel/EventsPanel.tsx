@@ -38,7 +38,7 @@ export default function EventsPanel() {
   };
 
   return (
-    <div className="flex flex-col flex-1 overflow-auto">
+    <div className="flex flex-col flex-1 w-[260px] overflow-hidden">
       <Input
         value={search}
         onChange={handleSearch}
@@ -48,7 +48,7 @@ export default function EventsPanel() {
       <Button size="small" sx={{ margin: "8px 0" }} onClick={resetList}>
         Reset selected
       </Button>
-      <div className="overflow-auto">
+      <div className="flex flex-col flex-1 overflow-auto">
         {items.map((name) => (
           <div key={name} className="flex items-center">
             <Checkbox

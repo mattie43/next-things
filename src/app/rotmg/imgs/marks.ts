@@ -140,8 +140,48 @@ export const MARKS: Record<string, TMark> = {
     image: "https://i.imgur.com/nx51H0q.png",
     link: "https://www.realmeye.com/wiki/mark-of-the-killer-bee-queen",
   },
-  "Mark of the Killer Queen Bee": {
-    image: "https://i.imgur.com/nx51H0q.png",
-    link: "https://www.realmeye.com/wiki/mark-of-the-killer-bee-queen",
+  "Mark of the Advanced Killer Bee Queen": {
+    image: "https://i.imgur.com/ZGu43fO.png",
+    link: "https://www.realmeye.com/wiki/mark-of-the-advanced-killer-bee-queen",
+  },
+  "Mark of the Control Core": {
+    image: "https://i.imgur.com/VkgLm6z.png",
+    link: "https://www.realmeye.com/wiki/mark-of-the-control-core",
+  },
+  "Mark of the Advanced Control Core": {
+    image: "https://i.imgur.com/TLudRZO.png",
+    link: "https://www.realmeye.com/wiki/mark-of-the-advanced-control-core",
+  },
+  "Mark of the Soulwarden": {
+    image: "https://i.imgur.com/vS60fjn.png",
+    link: "https://www.realmeye.com/wiki/mark-of-the-soulwarden",
+  },
+  "Mark of Moonlight": {
+    image: "https://i.imgur.com/gUTmoEM.png",
+    link: "https://www.realmeye.com/wiki/mark-of-moonlight",
+  },
+  "Mark of the Kitsune": {
+    image: "https://i.imgur.com/KqG4OeL.png",
+    link: "https://www.realmeye.com/wiki/mark-of-the-kitsune",
+  },
+  "Mark of the Marble Colossus": {
+    image: "https://i.imgur.com/THsUUR7.png",
+    link: "https://www.realmeye.com/wiki/mark-of-the-marble-colossus",
+  },
+  "Mark of Malus": {
+    image: "https://i.imgur.com/LT8LixL.png",
+    link: "https://www.realmeye.com/wiki/mark-of-malus",
+  },
+  "Mark of the Crystal Entity": {
+    image: "https://i.imgur.com/Z6jGGuG.png",
+    link: "https://www.realmeye.com/wiki/mark-of-the-crystal-entity",
+  },
+  "Mark of the Void Entity": {
+    image: "https://i.imgur.com/LMUvTZe.png",
+    link: "https://www.realmeye.com/wiki/mark-of-the-void-entity",
+  },
+  "Mark of the Forgotten King": {
+    image: "https://i.imgur.com/YmNeVHf.png",
+    link: "https://www.realmeye.com/wiki/mark-of-the-forgotten-king",
   },
 };

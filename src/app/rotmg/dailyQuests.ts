@@ -103,13 +103,13 @@ export const BEGINNER_QUESTS = [
     rewards: ["Beginner Quest Chest"],
   },
   {
-    task: "The Queen Bee",
-    description: "Defeat the Queen Bee in the Hive.",
+    task: "The Bee Queen",
+    description: "Defeat the Bee Queen in the Hive.",
     marks: [
-      "Mark of the Queen Bee",
-      "Mark of the Queen Bee",
-      "Mark of the Queen Bee",
-      "Mark of the Queen Bee",
+      "Mark of the Bee Queen",
+      "Mark of the Bee Queen",
+      "Mark of the Bee Queen",
+      "Mark of the Bee Queen",
     ],
     rewards: ["Beginner Quest Chest"],
   },
@@ -122,7 +122,7 @@ export const BEGINNER_QUESTS = [
       "Mark of Mama Megamoth",
       "Mark of Arachna",
       "Mark of Mixcoatl",
-      "Mark of the Queen Bee",
+      "Mark of the Bee Queen",
     ],
     rewards: ["Beginner Quest Chest", "Treasure Map"],
   },
@@ -338,8 +338,7 @@ export const STRANDARD_QUESTS = [
   },
   {
     task: "Rainbow Road",
-    description:
-      'Bring me some marks while you search for <a href="/wiki/stat-increase-potions">stat potions</a>!',
+    description: "Bring me some marks while you search for stat potions!",
     marks: [
       "Mark of Septavius",
       "Mark of Limon",
@@ -638,9 +637,9 @@ export const EPIC_QUESTS = [
     task: "The Killer Queen",
     description: "Defeat the Killer Bee Queen in the Nest.",
     marks: [
-      "Mark of the Killer Queen Bee",
-      "Mark of the Killer Queen Bee",
-      "Mark of the Killer Queen Bee",
+      "Mark of the Killer Bee Queen",
+      "Mark of the Killer Bee Queen",
+      "Mark of the Killer Bee Queen",
     ],
     rewards: ["Honeyed Epic Quest Chest", "Lucky Clover"],
   },
@@ -658,11 +657,11 @@ export const EPIC_QUESTS = [
     task: "The Colossus",
     description: "Defeat the Marble Colossus in the Lost Halls.",
     marks: [
-      "Mark of the Marble Collossus",
-      "Mark of the Marble Collossus",
-      "Mark of the Marble Collossus",
+      "Mark of the Marble Colossus",
+      "Mark of the Marble Colossus",
+      "Mark of the Marble Colossus",
     ],
-    rewards: ["Marbled Epic Quest Chest", "Lucky Clover"],
+    rewards: ["Marble Epic Quest Chest", "Lucky Clover"],
   },
   {
     task: "The Cultist",
@@ -737,10 +736,10 @@ export const EPIC_QUESTS = [
     task: "Advanced Nest",
     description: "Defeat the Killer Bee Queen in the Advanced Nest.",
     marks: [
-      "Mark of the Advanced Killer Queen Bee",
-      "Mark of the Advanced Killer Queen Bee",
-      "Mark of the Advanced Killer Queen Bee",
-      "Mark of the Advanced Killer Queen Bee",
+      "Mark of the Advanced Killer Bee Queen",
+      "Mark of the Advanced Killer Bee Queen",
+      "Mark of the Advanced Killer Bee Queen",
+      "Mark of the Advanced Killer Bee Queen",
     ],
     rewards: [
       "Honeyed Epic Quest Chest",

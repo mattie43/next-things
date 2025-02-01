@@ -10,10 +10,10 @@ export default function page() {
         href="https://remaster.realmofthemadgod.com/?p=3688"
         target="_blank"
       >
-        Images are taken from DECA blog post
+        Map is taken from DECA blog post
       </Link>
       <Link href="https://i.imgur.com/SxZcOsu.jpeg" target="_blank">
-        Realm rework updated drop table image
+        Imgur of the Realm rework's updated drop table
       </Link>
     </div>
   );

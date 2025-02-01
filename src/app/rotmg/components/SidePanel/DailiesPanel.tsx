@@ -67,14 +67,14 @@ export default function DailiesPanel() {
   ];
 
   return (
-    <div className="flex flex-col flex-1 overflow-auto">
+    <div className="flex flex-col flex-1 w-[265px] overflow-hidden">
       <Input
         startAdornment={<Search fontSize="small" />}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         sx={{ mb: 1, fontSize: "small" }}
       />
-      <div className="flex flex-col overflow-auto">
+      <div className="flex flex-col flex-1 overflow-auto">
         {items.map((item) => (
           <div key={item.title}>
             <Typography

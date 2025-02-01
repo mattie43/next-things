@@ -22,12 +22,14 @@ export default function page() {
 
   const showEvents = noEvents ? events : filteredEvents;
 
+  const showGuides = settings.showGuides;
+
   const info =
     "Search and sort events by selecting them from the side panel. While nothing is selected, everything will be shown. Events will automatically refresh every 10 seconds.";
 
   return (
     <div className="flex flex-col h-full w-full">
-      <Infobox info={info} />
+      {showGuides && <Infobox info={info} />}
       <div className="grid grid-cols-2 2xl:grid-cols-3 gap-2 px-4 pb-4 overflow-auto w-full flex-1">
         <TopRealmScores />
         {showEvents.map((event, ind) => (
