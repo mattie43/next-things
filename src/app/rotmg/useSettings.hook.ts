@@ -1,6 +1,5 @@
 import useSWR from "swr";
-import { TDailyQuest } from "./dailyQuests.constants.ts";
-import { TRotmgDungeon } from "./rotmgDungeons.constants";
+import { TDailyQuest } from "./dailyQuests.constants";
 
 export const sortItems = [
   {
