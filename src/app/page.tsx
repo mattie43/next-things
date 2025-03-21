@@ -1,4 +1,4 @@
-import { MyLinks } from "@/app/home/MyLinks";
+import { MyLinks } from "@/components/MyLinks";
 import { Fragment } from "react";
 import { pastelColors } from "@/constants";
 import Link from "next/link";
@@ -8,8 +8,8 @@ const body2 = "My name is Matt Ericksen.";
 const body3 = "This is where I put things that I build.";
 const links = [
   {
-    text: "V-Scroll",
-    route: "/vscroll",
+    text: "null",
+    route: "/",
   },
 ];
 
