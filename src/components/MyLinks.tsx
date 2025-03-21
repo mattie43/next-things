@@ -5,19 +5,16 @@ import li from "@/imgs/linkedin.png";
 import em from "@/imgs/gmail.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef } from "react";
 import { Snackbar } from "@/ui";
 
 export const MyLinks = () => {
-  const [copied, setCopied] = useState(false);
+  const snackbarRef = useRef<{ open: (message: string) => void }>(null);
 
   const copyEmail = () => {
     navigator.clipboard.writeText("mattericksen93@gmail.com");
 
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 2500);
+    snackbarRef.current?.open("Copied to clipboard!");
   };
 
   return (
@@ -37,7 +34,9 @@ export const MyLinks = () => {
           onClick={copyEmail}
         />
       </div>
-      <Snackbar open={copied} message="Copied to clipboard!" />
+      <button onClick={() => snackbarRef.current?.open("new msg")}>open</button>
+      <Snackbar snackbarRef={snackbarRef} />
+      <Snackbar snackbarRef={snackbarRef} />
     </div>
   );
 };

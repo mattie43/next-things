@@ -1,4 +1,12 @@
-export const Button = (props: any) => {
+type ButtonVariant = "default" | "text" | "outline" | "icon";
+type ButtonProps = {
+  children: React.ReactNode;
+  variant?: ButtonVariant;
+  className?: string;
+  onClick?: () => void;
+};
+
+export const Button = (props: ButtonProps) => {
   const { children, variant, className, onClick } = props;
 
   const variants: { [key: string]: string } = {
