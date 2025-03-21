@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@mui/material";
-import { theme } from "@/context/MuiTheme";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import "@/globals.css";
 
 export const metadata: Metadata = {
@@ -16,11 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

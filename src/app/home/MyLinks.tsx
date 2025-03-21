@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { pastelColors } from "@/constants";
-import { Snackbar } from "@mui/material";
 
 export const MyLinks = () => {
   const [copied, setCopied] = useState(false);
@@ -46,7 +45,7 @@ export const MyLinks = () => {
           onClick={copyEmail}
         />
       </div>
-      <Snackbar
+      {/* <Snackbar
         message="Copied to clipboard!"
         open={copied}
         sx={{
@@ -56,7 +55,7 @@ export const MyLinks = () => {
             color: colors[1],
           },
         }}
-      />
+      /> */}
     </div>
   );
 };

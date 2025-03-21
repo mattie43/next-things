@@ -1,8 +1,17 @@
 import { MyLinks } from "@/app/home/MyLinks";
-import { body, body2, body3, links } from "@/app/home/homeText.constants";
 import { Fragment } from "react";
 import { pastelColors } from "@/constants";
 import Link from "next/link";
+
+const body = "Hi.";
+const body2 = "My name is Matt Ericksen.";
+const body3 = "This is where I put things that I build.";
+const links = [
+  {
+    text: "V-Scroll",
+    route: "/vscroll",
+  },
+];
 
 export default function Home() {
   return (

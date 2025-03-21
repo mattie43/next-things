@@ -9,19 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/cache": "^11.13.1",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "^6.1.4",
-    "@mui/material": "^6.1.4",
-    "@mui/material-nextjs": "^6.1.4",
-    "@preact/signals": "^2.0.1",
-    "@preact/signals-react": "^3.0.1",
-    "next": "14.2.14",
-    "react": "^18",
-    "react-dom": "^18",
+    "eslint-config-next": "^15.2.2",
+    "next": "^15.2.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-virtuoso": "^4.12.5",
     "sqlite3": "^5.1.7",
-    "swr": "^2.2.5"
+    "swr": "^2.3.3"
   },
   "devDependencies": {
     "@types/node": "^20",
