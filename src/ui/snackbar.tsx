@@ -3,14 +3,15 @@
 import { useState } from "react";
 import { Button } from "./button";
 
-type SnackbarProps = {
-  snackbarRef: React.MutableRefObject<{
-    open: (message: string) => void;
-  } | null>;
+export type TSnackbarRef = {
+  open: (message: string) => void;
 };
 
-export const Snackbar = (props: SnackbarProps) => {
-  const { snackbarRef } = props;
+export const Snackbar = ({
+  snackbarRef,
+}: {
+  snackbarRef: React.MutableRefObject<TSnackbarRef | null>;
+}) => {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
 

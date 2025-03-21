@@ -6,10 +6,10 @@ import em from "@/imgs/gmail.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-import { Snackbar } from "@/ui";
+import { Snackbar, type TSnackbarRef } from "@/ui";
 
 export const MyLinks = () => {
-  const snackbarRef = useRef<{ open: (message: string) => void }>(null);
+  const snackbarRef = useRef<TSnackbarRef>(null);
 
   const copyEmail = () => {
     navigator.clipboard.writeText("mattericksen93@gmail.com");
