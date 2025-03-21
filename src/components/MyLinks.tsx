@@ -6,21 +6,13 @@ import em from "@/imgs/gmail.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { pastelColors } from "@/constants";
+import { Snackbar } from "@/ui";
 
 export const MyLinks = () => {
   const [copied, setCopied] = useState(false);
-  const [colors, setColors] = useState([pastelColors[0], pastelColors[4]]);
 
   const copyEmail = () => {
     navigator.clipboard.writeText("mattericksen93@gmail.com");
-
-    const colorOne =
-      pastelColors[Math.floor(Math.random() * pastelColors.length)];
-    const colorTwo =
-      pastelColors[Math.floor(Math.random() * pastelColors.length)];
-
-    setColors([colorOne, colorTwo]);
 
     setCopied(true);
     setTimeout(() => {
@@ -45,17 +37,7 @@ export const MyLinks = () => {
           onClick={copyEmail}
         />
       </div>
-      {/* <Snackbar
-        message="Copied to clipboard!"
-        open={copied}
-        sx={{
-          "& .MuiPaper-root": {
-            backgroundColor: "var(--black)",
-            border: `2px solid ${colors[0]}`,
-            color: colors[1],
-          },
-        }}
-      /> */}
+      <Snackbar open={copied} message="Copied to clipboard!" />
     </div>
   );
 };
