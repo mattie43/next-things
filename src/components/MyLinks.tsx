@@ -2,19 +2,13 @@
 
 import gh from "@/imgs/github-white.png";
 import li from "@/imgs/linkedin.png";
-import em from "@/imgs/gmail.png";
+import gm from "@/imgs/gmail.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
-import { Snackbar, type TSnackbarRef } from "@/ui";
 
 export const MyLinks = () => {
-  const snackbarRef = useRef<TSnackbarRef>(null);
-
   const copyEmail = () => {
     navigator.clipboard.writeText("mattericksen93@gmail.com");
-
-    snackbarRef.current?.open("Copied to clipboard!");
   };
 
   return (
@@ -27,16 +21,13 @@ export const MyLinks = () => {
       </Link>
       <div className="cursor-pointer">
         <Image
-          src={em}
+          src={gm}
           width={42}
           height={42}
           alt="Copy Email"
           onClick={copyEmail}
         />
       </div>
-      <button onClick={() => snackbarRef.current?.open("new msg")}>open</button>
-      <Snackbar snackbarRef={snackbarRef} />
-      <Snackbar snackbarRef={snackbarRef} />
     </div>
   );
 };

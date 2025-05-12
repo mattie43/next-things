@@ -1,3 +1,4 @@
+import React from "react";
 import { MyLinks } from "@/components/MyLinks";
 import { Fragment } from "react";
 import { pastelColors } from "@/constants";
