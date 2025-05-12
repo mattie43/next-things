@@ -5,9 +5,11 @@ import li from "@/imgs/linkedin.png";
 import gm from "@/imgs/gmail.png";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "sonner";
 
 export const MyLinks = () => {
   const copyEmail = () => {
+    toast("Copied to clipboard!");
     navigator.clipboard.writeText("mattericksen93@gmail.com");
   };
 

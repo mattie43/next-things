@@ -55,11 +55,11 @@
 }
 
 .dark {
-  --color-background: rgb(0, 0, 34);
+  --color-background: rgba(22, 22, 37, 1);
   --color-foreground: rgba(255, 255, 255, 1);
   --color-card: rgba(0, 0, 85, 1);
   --color-card-foreground: rgba(255, 255, 255, 1);
-  --color-popover: rgba(0, 0, 85, 1);
+  --color-popover: rgba(22, 22, 37, 1);
   --color-popover-foreground: rgba(255, 255, 255, 1);
   --color-primary: rgba(235, 235, 255, 1);
   --color-primary-foreground: rgba(0, 0, 85, 1);
