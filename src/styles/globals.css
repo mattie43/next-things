@@ -57,7 +57,7 @@
 .dark {
   --color-background: rgba(22, 22, 37, 1);
   --color-foreground: rgba(255, 255, 255, 1);
-  --color-card: rgba(0, 0, 85, 1);
+  --color-card: rgba(22, 22, 37, 1);
   --color-card-foreground: rgba(255, 255, 255, 1);
   --color-popover: rgba(22, 22, 37, 1);
   --color-popover-foreground: rgba(255, 255, 255, 1);
@@ -96,4 +96,8 @@ body {
   padding: 0;
   font-family: var(--font-overpass);
   font-size: 1.25rem;
+}
+
+a:hover {
+  text-decoration: underline;
 }
